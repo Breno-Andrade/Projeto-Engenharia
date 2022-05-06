@@ -34,19 +34,19 @@ public class Connect {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão!\nERRO: " + ex.getMessage(), "Banco de Dados", JOptionPane.INFORMATION_MESSAGE);
         }
-        try {
-        	  PreparedStatement pst = conexao.prepareStatement("insert into reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)");
-        	  pst.setString(1, "Rodrigo");
-        	  pst.setString(2, "486336958");
-        	  pst.setString(3, "saibro");
-        	  pst.setString(4, "18/12");
-        	  pst.setString(5, "18:30");
-        	  pst.setString(6, "19:30");
-        	  
-        	  pst.executeUpdate();
-        	  JOptionPane.showMessageDialog(null, "Salvo com Sucesso!");
-        	} catch (SQLException ex) {
-        	  JOptionPane.showMessageDialog(null, "Erro na inserção!\nErro: " + ex.getMessage());
-        	}
     }
 }
+/*try {
+    PreparedStatement pst = conexao.prepareStatement("insert into reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)");
+    pst.setString(1, "Rodrigo");
+    pst.setString(2, "486336958");
+    pst.setString(3, "saibro");
+    pst.setString(4, "18/12");
+    pst.setString(5, "18:30");
+    pst.setString(6, "19:30");
+    
+    pst.executeUpdate();
+    JOptionPane.showMessageDialog(null, "Salvo com Sucesso!");
+  } catch (SQLException ex) {
+    JOptionPane.showMessageDialog(null, "Erro na inserção!\nErro: " + ex.getMessage());
+  }*/
