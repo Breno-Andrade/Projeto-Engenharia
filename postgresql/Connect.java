@@ -9,7 +9,6 @@ public class Connect {
     
     public Statement stm; // Responsavel por preparar e realizar pesquisas no banco de dados;
     public ResultSet rs; // Responsavel por armazenar o resultado de um pesquisa passada para o statement;
-    private String driver = "org.postgresql.Driver";
     private String caminho = "jdbc:postgresql://localhost/reserva"; // O "meubanco" representa a minha database 
     private String usuario = "postgres"; // Usuario default
     private String senha = "017017";
@@ -17,7 +16,6 @@ public class Connect {
     
     public void conectar() { // Metodo responsavel por realizar a conexão;
         try {
-            System.setProperty("jdbc.Drivers", driver); // Seta a propriedade do driver de conexão;
             conexao = DriverManager.getConnection(caminho, usuario, senha); // Realiza a conexão com o banco;
             JOptionPane.showMessageDialog(null, "Conectado com sucesso!", "Banco de Dados", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
