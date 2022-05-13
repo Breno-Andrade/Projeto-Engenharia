@@ -1,14 +1,22 @@
 public class Usuario {
-    protected String usuarioVF;
-    protected String senhaVF;
+    protected String usuario;
+    protected String senha;
     protected boolean verificacao;
 
     protected Usuario(String usuario, String senha) {
-        usuarioVF = usuario;
-        senhaVF = senha;
+        setUsuario(usuario);
+        setSenha(senha);;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setSenha(String senhaVF) {
+        this.senha = senhaVF;
     }
 
     protected boolean verificaUsuario(boolean verificacao) {
-        return (usuarioVF.contains("admin") && senhaVF.contains("123"));
+        return (usuario.contains("admin") && senha.contains("123"));
     }
 }
