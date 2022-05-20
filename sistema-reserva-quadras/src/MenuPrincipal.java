@@ -12,7 +12,7 @@ public class MenuPrincipal {
     }
 
     public void exibeMenu(){
-        aux = JOptionPane.showInputDialog(null, "Menu principal \n ---------------------\n 1 - Agendamento\n 2 - Gestão de quadras\n 3 - Gestão de usuários\n 4 - Estatísticas do clube\n 5 - Sair");  
+        aux = JOptionPane.showInputDialog(null, "Menu principal \n -----------------------------------------------------\n 1 - Agendamento\n 2 - Gestão de quadras\n 3 - Gestão de usuários\n 4 - Estatísticas do clube\n 5 - Sair");  
         opcao = Integer.parseInt(aux);
         
     }

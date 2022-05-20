@@ -23,7 +23,7 @@ public class Reserva {
     }
 
     public static void exibeMenu(){
-        aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada! \n[1] Reservar quadra \n [2] Deletar quadra \n [3] Consultar quadras reservadas \n [4] Sair");
+        aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar quadra \n 2 - Deletar quadra \n 3 - Consultar quadras reservadas \n 4 - Sair");
         op = Integer.parseInt(aux);
     }
 
