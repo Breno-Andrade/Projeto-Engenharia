@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+// SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
+
+
 import reserva.Quadra;
 
 public class QuadraDAO {
