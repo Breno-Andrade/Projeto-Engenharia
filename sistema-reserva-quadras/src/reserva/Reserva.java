@@ -8,26 +8,26 @@ import dao.QuadraDAO;
 
 public class Reserva {
 
-    String nome;
-    String cpf;
-    String tipo_quadra;
-    String dia_mes;
-    String horainicio;
-    String horafim;
-    int op;
-    String aux;
+    static String  nome;
+    static String cpf;
+    static String tipo_quadra;
+    static String dia_mes;
+    static String horainicio;
+    static String horafim;
+    static int op;
+    static String aux;
 
-    public Reserva(int i){
+    public Reserva(){
         exibeMenu();
         verificaOpcao();
     }
 
-    public void exibeMenu(){
+    public static void exibeMenu(){
         aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada! \n[1] Reservar quadra \n [2] Deletar quadra \n [3] Consultar quadras reservadas \n [4] Sair");
         op = Integer.parseInt(aux);
     }
 
-    public void verificaOpcao(){
+    public static void verificaOpcao(){
         switch (op) {
             case 1:
             {
@@ -92,7 +92,7 @@ public class Reserva {
                     System.out.println("hora inicio: " + q.getHora_inicio());
                     System.out.println("hora termino: " + q.getHora_termino());
                     System.out.println("");
-        }break;
+                }break;
             }
             case 4:
             {

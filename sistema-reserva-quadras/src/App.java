@@ -11,6 +11,7 @@ public class App {
             JOptionPane.showMessageDialog(null, "Login concluído!");
             menu.verificaOpcao();
             menu.exibeMenu();
+
         }
     }
 }

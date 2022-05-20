@@ -20,9 +20,11 @@ public class MenuPrincipal {
     public void verificaOpcao(){
         switch (opcao) {
             case 1:
-                Reserva menuReserva = new Reserva(0); 
-                menuReserva.exibeMenu();
-                menuReserva.verificaOpcao();
+                // Reserva menuReserva = new Reserva(); 
+                // menuReserva.exibeMenu();
+                // menuReserva.verificaOpcao();
+                Reserva.exibeMenu();
+                Reserva.verificaOpcao();
                 break;
             case 2:
             // Gestão de quadras 
