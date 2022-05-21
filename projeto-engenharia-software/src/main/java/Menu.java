@@ -1,12 +1,12 @@
-package main.java;
+
 
 import javax.swing.JOptionPane;
 
-public class menu {
+public class Menu {
     protected String aux;
     protected int op; 
 
-    protected menu (String aux, int op) {
+    protected Menu (String aux, int op) {
         this.aux = JOptionPane.showInputDialog(null, "Menu principal \n ---------------------\n 1 - Agendamento\n 2 - Gestão de quadras\n 3 - Gestão de usuários\n 4 - Estatísticas do clube\n 5 - Sair");  
         this.op = Integer.parseInt(aux);
         }

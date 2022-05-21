@@ -1,6 +1,5 @@
-package main.java;
-
-import java.sql.Connection;
+    
+    import java.sql.Connection;
     import java.sql.DriverManager;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
@@ -44,8 +43,8 @@ import java.sql.Connection;
         
         public static void buscarReservasQuadras(){
             try {
-                
-                Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost/reserva", "postgres", "017017");
+                // Conexão com bando de dados.
+                Connection conexao = Conexao.conectar();
                 
                 PreparedStatement stmt = conexao.prepareStatement ("SELECT * FROM public.reservaquadra");
                 
@@ -70,7 +69,6 @@ import java.sql.Connection;
                     System.out.println("");
                 }
                 }catch (SQLException e){
-                    
                     e.printStackTrace();
                 }
             
@@ -89,7 +87,8 @@ import java.sql.Connection;
             String horafim    = JOptionPane.showInputDialog("Digite a hora de termino desejada: ");
     
             try {
-                Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost/reserva", "postgres", "017017");
+                // Conexão com bando de dados.
+                Connection conexao = Conexao.conectar();
                 PreparedStatement stmt = conexao.prepareStatement ("INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)");
                 
                 stmt.setString(1, nome);
@@ -120,7 +119,8 @@ import java.sql.Connection;
             int id = Integer.parseInt(aux);
     
             try {
-                Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost/reserva", "postgres", "017017");  
+                // Conexão com bando de dados.
+                Connection conexao = Conexao.conectar(); 
                 PreparedStatement stmt = conexao.prepareStatement("DELETE FROM public.reservaquadra WHERE id = ?");
     
                     stmt.setInt(1, id);
@@ -151,7 +151,8 @@ import java.sql.Connection;
             String hora_termino = JOptionPane.showInputDialog("Digite o nova hora de termino: ");
             
             try {
-                Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost/reserva", "postgres", "017017");
+                // Conexão com bando de dados.
+                Connection conexao = Conexao.conectar();
                 PreparedStatement stmt = conexao.prepareStatement("UPDATE public.reservaquadra SET nome = ?, cpf = ?, tipo_quadra = ?, dia_mes = ?, hora_inicio = ?, hora_termino = ?  WHERE id = ?");
                 
                 stmt.setString(1, nome);
