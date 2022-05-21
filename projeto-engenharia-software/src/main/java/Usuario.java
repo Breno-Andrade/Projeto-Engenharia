@@ -1,3 +1,5 @@
+package main.java;
+
 public class Usuario {
     protected String usuario;
     protected String senha;
