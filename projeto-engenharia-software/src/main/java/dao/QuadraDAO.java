@@ -6,21 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import conexao.Conexao;
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 
 
-import reserva.Quadra;
-
+import reserva.Quadra; 
 public class QuadraDAO {
 	private static final String  Insert_SQL = "INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.reservaquadra";
 	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";
 	
-	private static final String User_SQL = "postgres";
-	private static final String Url_SQL = "jdbc:postgresql://localhost/reserva";
-	private static final String Password_SQL = "017017";
+	
+	
 
 	public static ArrayList<Quadra> buscarReservas(){
 		
@@ -28,8 +26,7 @@ public class QuadraDAO {
 		
 		try {
 			
-			Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);
-			
+			Connection conexao = Conexao.conectar();
 			PreparedStatement stmt = conexao.prepareStatement (Select_SQL);
 			
 			ResultSet rs =stmt.executeQuery();
@@ -69,7 +66,7 @@ public class QuadraDAO {
 		boolean sucesso = false;
         
 		try {
-			Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);
+			Connection conexao = Conexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement (Insert_SQL);
             
             stmt.setString(1, q.getNome());
@@ -97,7 +94,7 @@ public class QuadraDAO {
 
 	    
 	    try {
-	        Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);  
+	        Connection conexao = Conexao.conectar(); 
 	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
 
 	            stmt.setInt(1, q.getId());
