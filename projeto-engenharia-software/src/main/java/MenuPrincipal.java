@@ -2,22 +2,21 @@ import javax.swing.JOptionPane;
 import reserva.Reserva;
 
 public class MenuPrincipal {
-    private String aux;
-    private int opcao;
+    private static String aux;
+    private static int opcao;
     
     MenuPrincipal(int opcao) {
-        this.opcao = opcao;
         exibeMenu();
         verificaOpcao();
     }
 
-    public void exibeMenu(){
+    public static void exibeMenu(){
         aux = JOptionPane.showInputDialog(null, "Menu principal \n -----------------------------------------------------\n 1 - Agendamento\n 2 - Gestão de quadras\n 3 - Gestão de usuários\n 4 - Estatísticas do clube\n 5 - Sair");  
         opcao = Integer.parseInt(aux);
         
     }
 
-    public void verificaOpcao(){
+    public static void verificaOpcao(){
         switch (opcao) {
             case 1:
                 // Reserva menuReserva = new Reserva(); 

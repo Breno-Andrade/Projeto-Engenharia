@@ -5,12 +5,11 @@ public class App {
         String senha = JOptionPane.showInputDialog(null, "Insira a senha de usuário: ");
 
         Usuario testeLogin = new Usuario(usuario, senha);
-        MenuPrincipal menu = new MenuPrincipal(0);
     
         if (testeLogin.verificaUsuario(false) == true){
             JOptionPane.showMessageDialog(null, "Login concluído!");
-            menu.verificaOpcao();
-            menu.exibeMenu();
+            MenuPrincipal.verificaOpcao();
+            MenuPrincipal.exibeMenu();
 
         }
     }
