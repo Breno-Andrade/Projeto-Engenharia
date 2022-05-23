@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +14,7 @@ import reserva.Quadra;
 public class QuadraDAO {
 	private static final String  Insert_SQL = "INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.reservaquadra";
-	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";
-	
-	
-	
+	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";	
 
 	public static ArrayList<Quadra> buscarReservas(){
 		

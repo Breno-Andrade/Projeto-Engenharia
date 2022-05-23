@@ -35,7 +35,9 @@ public class Reserva {
                 
                 nome        = JOptionPane.showInputDialog("Digite o nome: ");
                 cpf         = JOptionPane.showInputDialog("Digite o cpf: ");
-                tipo_quadra = JOptionPane.showInputDialog("Digite o tipo da quadra: ");
+                String[] valores  = {"Saibro", "Tenis rápido","Beath tenis"};
+                tipo_quadra    = (String)JOptionPane.showInputDialog(null, "Escolha um tipo de quadra", "quadra", 
+                JOptionPane.QUESTION_MESSAGE, null, valores, valores[0]);
                 dia_mes     = JOptionPane.showInputDialog("Digite o dia e mes (ex: 00/00): ");
                 horainicio  = JOptionPane.showInputDialog("Digite a hora de inicio desejada: (funcionamento = 06:00 at  22:00) ");
                 horafim     = JOptionPane.showInputDialog("Digite a hora de termino desejada: ");
