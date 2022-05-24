@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Conexao {
 
     public static Connection conectar(){
-        final String Url_SQL = "jdbc:postgresql://localhost:5432/reserva";
+        final String Url_SQL = "jdbc:postgresql://192.168.15.12:5432/reserva";
         final String User_SQL = "postgres";
 	    final String Password_SQL = "017017";
       
@@ -20,7 +20,7 @@ public class Conexao {
     }
 
     public static Connection desconectar() {
-        final String Url_SQL = "jdbc:postgresql://localhost:5432/reserva";
+        final String Url_SQL = "jdbc:postgresql://192.168.15.12:5432/reserva";
         final String User_SQL = "postgres";
 	    final String Password_SQL = "017017";
 
