@@ -121,9 +121,9 @@ public class CadastroQuadras {
                 System.out.println("Deseja inserir outro numero de quadra??('s' para sim 'n' para não");
                 condi = ler.next();
                 if (condi == "s") {
-                    sair = true;
-                } else{
                     sair = false;
+                } else{
+                    sair = true;
                 }
             }
 
