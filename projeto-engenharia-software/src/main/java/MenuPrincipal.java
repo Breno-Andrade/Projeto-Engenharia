@@ -1,5 +1,5 @@
 import javax.swing.JOptionPane;
-import reserva.Reserva;
+import reserva.MenuReserva;
 
 public class MenuPrincipal {
     private String aux;
@@ -23,8 +23,8 @@ public class MenuPrincipal {
                 // Reserva menuReserva = new Reserva(); 
                 // menuReserva.exibeMenu();
                 // menuReserva.verificaOpcao();
-                Reserva.exibeMenu();
-                Reserva.verificaOpcao();
+                MenuReserva.exibeMenu();
+                MenuReserva.verificaOpcao();
                 break;
             case 2:
             // Gestão de quadras 

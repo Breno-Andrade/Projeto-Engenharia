@@ -10,15 +10,15 @@ import conexao.Conexao;
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 
 
-import reserva.Quadra; 
-public class QuadraDAO {
+import reserva.Reserva; 
+public class ReservaDAO {
 	private static final String  Insert_SQL = "INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.reservaquadra";
 	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";	
 
-	public static ArrayList<Quadra> buscarReservas(){
+	public static ArrayList<Reserva> buscarReservas(){
 		
-		ArrayList <Quadra> quadra = new ArrayList();
+		ArrayList <Reserva> quadra = new ArrayList();
 		
 		try {
 			
@@ -36,7 +36,7 @@ public class QuadraDAO {
 			    String hora_inicio = rs.getString("hora_inicio");
 			    String hora_termino = rs.getString("hora_termino");
   
-			    Quadra q = new Quadra();
+			    Reserva q = new Reserva();
 			    q.setId(id);
 			    q.setNome(nome);
 			    q.setCpf(cpf);
@@ -57,7 +57,7 @@ public class QuadraDAO {
 		
 		}
 
-	public static boolean reservarQuadra(Quadra q){
+	public static boolean reservarQuadra(Reserva q){
 		
 		boolean sucesso = false;
         
@@ -85,7 +85,7 @@ public class QuadraDAO {
 		return sucesso;
         }
 	
-	public static boolean deletarReserva (Quadra q) {
+	public static boolean deletarReserva (Reserva q) {
 		boolean sucesso = false;
 
 	    
