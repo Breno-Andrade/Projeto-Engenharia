@@ -23,7 +23,7 @@ public class MenuReserva {
     }
 
     public static void exibeMenu(){
-        aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar quadra \n 2 - Deletar quadra \n 3 - Consultar quadras reservadas \n 4 - Sair");
+        aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
         op = Integer.parseInt(aux);
     }
 
@@ -33,13 +33,13 @@ public class MenuReserva {
             {
                 JOptionPane.showMessageDialog(null, "===== Reservar Quadra =====");
                 
-                nome              = JOptionPane.showInputDialog("Digite o nome: ");
-                cpf               = JOptionPane.showInputDialog("Digite o cpf: ");
+                nome              = JOptionPane.showInputDialog("Digite o Nome: ");
+                cpf               = JOptionPane.showInputDialog("Digite o CPF: ");
                 String[] valores  = {"Saibro", "Tenis rápido","Beath tenis"};
                 tipo_quadra       = (String)JOptionPane.showInputDialog(null, "Escolha um tipo de quadra", "quadra", 
                 JOptionPane.QUESTION_MESSAGE, null, valores, valores[0]);
                 dia_mes           = JOptionPane.showInputDialog("Digite o dia e mes (ex: 00/00): ");
-                horainicio        = JOptionPane.showInputDialog("Digite a hora de inicio desejada: (funcionamento = 06:00 at  22:00) ");
+                horainicio        = JOptionPane.showInputDialog("Digite a hora de inicio desejada:\n (funcionamento = 06:00 at  22:00) ");
                 horafim           = JOptionPane.showInputDialog("Digite a hora de termino desejada: ");
                 
                   Reserva q = new Reserva();
@@ -86,14 +86,15 @@ public class MenuReserva {
             { 
                 ArrayList <Reserva> quadra = ReservaDAO.buscarReservas();
                 for (Reserva q : quadra) {
-                    System.out.println("id: " + q.getId());
-                    System.out.println("Nome: " + q.getNome());
-                    System.out.println("Cpf: " + q.getCpf());
-                    System.out.println("Tipo quadra: " + q.getTipoQuadra());
-                    System.out.println("Dia mes: " + q.getDia_mes());
-                    System.out.println("hora inicio: " + q.getHora_inicio());
-                    System.out.println("hora termino: " + q.getHora_termino());
-                    System.out.println("");
+                    JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" +"Nome: " + q.getNome() + "\nCPF: " + q.getCpf() + "\nTipoQuadra: " + q.getTipoQuadra() + "\nData: " + q.getDia_mes()+ "\nHora Início: " + q.getHora_inicio()+ "\nHora Término : " + q.getHora_termino());
+                    // System.out.println("id: " + q.getId());
+                    // System.out.println("Nome: " + q.getNome());
+                    // System.out.println("Cpf: " + q.getCpf());
+                    // System.out.println("Tipo quadra: " + q.getTipoQuadra());
+                    // System.out.println("Dia mes: " + q.getDia_mes());
+                    // System.out.println("hora inicio: " + q.getHora_inicio());
+                    // System.out.println("hora termino: " + q.getHora_termino());
+                    // System.out.println("");
                 }break;
             }
             case 4:
