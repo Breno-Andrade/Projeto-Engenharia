@@ -8,7 +8,7 @@ import dao.ReservaDAO;
 
 public class MenuReserva {
 
-    static String  nome;
+    static String nome;
     static String cpf;
     static String tipo_quadra;
     static String dia_mes;
