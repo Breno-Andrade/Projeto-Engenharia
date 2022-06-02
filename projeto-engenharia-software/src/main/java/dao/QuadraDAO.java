@@ -13,7 +13,8 @@ import conexao.Conexao;
 public class QuadraDAO {
 	private static final String Insert_SQL = "INSERT INTO testee (numero, tipo, coberta, arquibancada, banco_jogador) values (?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.testee";
-	private static final String Delete_SQL = "DELETE FROM public.testee WHERE id = ?";	
+	private static final String Delete_SQL = "DELETE FROM public.testee WHERE id = ?";
+	private static final String Update_SQL = "UPDATE public.testee SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ? WHERE id = ?";
 
 	public static ArrayList<Quadra> buscarReservas(){
 		
@@ -96,5 +97,30 @@ public class QuadraDAO {
 			  e.printStackTrace();
 	    }
 	    return sucesso;
+	}
+
+	public static boolean atualizarQuadra(Quadra q){
+		boolean sucesso = false;
+		
+	try{
+		Connection conexao = Conexao.getConnection(); 
+	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL);
+		
+		stmt.setInt(1, q.getNumero());
+		stmt.setString(2, q.getTipo());
+		stmt.setString(3, q.getCoberta());
+		stmt.setString(4, q.getArquibancada());
+		stmt.setString(5, q.getBanco());
+		stmt.setInt(6, q.getId());
+		
+		int rowsAffected = stmt.executeUpdate();
+
+			if (rowsAffected > 0) {
+			sucesso = true; 
+			}     
+	} catch (SQLException e){
+		e.printStackTrace();
+	}
+		return sucesso;
 	}
 }
