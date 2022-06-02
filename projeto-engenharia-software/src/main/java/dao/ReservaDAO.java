@@ -22,7 +22,7 @@ public class ReservaDAO {
 		
 		try {
 			
-			Connection conexao = Conexao.conectar();
+			Connection conexao = Conexao.getConnection();
 			PreparedStatement stmt = conexao.prepareStatement (Select_SQL);
 			
 			ResultSet rs =stmt.executeQuery();
@@ -62,7 +62,7 @@ public class ReservaDAO {
 		boolean sucesso = false;
         
 		try {
-			Connection conexao = Conexao.conectar();
+			Connection conexao = Conexao.getConnection();
             PreparedStatement stmt = conexao.prepareStatement (Insert_SQL);
             
             stmt.setString(1, q.getNome());
@@ -79,6 +79,7 @@ public class ReservaDAO {
             	sucesso = true;
         
             }
+			
       }catch (SQLException e) {
             	e.printStackTrace();
             }
@@ -90,7 +91,7 @@ public class ReservaDAO {
 
 	    
 	    try {
-	        Connection conexao = Conexao.conectar(); 
+	        Connection conexao = Conexao.getConnection(); 
 	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
 
 	            stmt.setInt(1, q.getId());

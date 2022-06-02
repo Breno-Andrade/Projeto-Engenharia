@@ -7,8 +7,6 @@ public class MenuPrincipal {
     
     MenuPrincipal(int opcao) {
         this.opcao = opcao;
-        exibeMenu();
-        verificaOpcao();
     }
 
     public void exibeMenu(){
