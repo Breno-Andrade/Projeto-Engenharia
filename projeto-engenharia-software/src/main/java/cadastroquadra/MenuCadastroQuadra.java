@@ -12,22 +12,13 @@ public class MenuCadastroQuadra{
   static String arquibancada;
   static String banco_jogador;
   static int op;
-  static String aux;
-  
-  public MenuCadastroQuadra(){
-    exibeMenuQuadra();
-    verificaOpcao();
-}
+  static String aux; 
 
-public static void exibeMenuQuadra(){
+public static void exibeMenu(){
   aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
   op = Integer.parseInt(aux);
 }
 
-public static void exibeMenu(){
-    aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
-    op = Integer.parseInt(aux);
-}
 public static void verificaOpcao(){
   switch (op) {
       case 1:
@@ -86,24 +77,26 @@ public static void verificaOpcao(){
       boolean removido = QuadraDAO.deletarReserva(q);
       
        if(removido) {
-           JOptionPane.showMessageDialog(null, "Removido com sucesso!!!");
+           JOptionPane.showMessageDialog(null, "Quadra removida com sucesso!!!");
        }else {
-           JOptionPane.showMessageDialog(null, "Erro ao remover reserva!!!");
+           JOptionPane.showMessageDialog(null, "Erro ao remover quadra!!!");
        }
-    }
+    }break;
+      case 3:
        ArrayList <Quadra> quadra = QuadraDAO.buscarReservas();
           for (Quadra q : quadra) {
             JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" +"Numero: " 
             + q.getNumero() + "\nTipo de quadra: " + q.getTipo() + "\nCoberta: " + q.getCoberta() + 
             "\nArquibancada: " + q.getArquibancada()+ "\nBanco para jogador: " + q.getBanco());
-          }
+          }break;
+
         case 4:
           {
           JOptionPane.showMessageDialog(null, "Saindo!!"); break;
           }
         default:
           {
-          JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo");
+          JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo!!");
           }
        }
     }

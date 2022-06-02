@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 import reserva.MenuReserva;
+import cadastroquadra.MenuCadastroQuadra;
 
 public class MenuPrincipal {
     private String aux;
@@ -25,8 +26,8 @@ public class MenuPrincipal {
                 MenuReserva.verificaOpcao();
                 break;
             case 2:
-            MenuReserva.exibeMenuQuadra();
-            MenuReserva.verificaOpcao();
+                MenuCadastroQuadra.exibeMenu();
+                MenuCadastroQuadra.verificaOpcao();
             // Gestão de quadras 
                 break;
             case 3: 
