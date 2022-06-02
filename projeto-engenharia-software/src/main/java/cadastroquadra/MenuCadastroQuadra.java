@@ -1,15 +1,37 @@
 package cadastroquadra;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import dao.QuadraDAO;
 
 public class MenuCadastroQuadra{
-    public static void main(String[] args) {
-        String tipo;
-        String coberta;
-        String arquibancada;
-        String banco_jogador;
+  static String tipo;
+  static String coberta;
+  static String arquibancada;
+  static String banco_jogador;
+  static int op;
+  static String aux;
+  
+  public MenuCadastroQuadra(){
+    exibeMenuQuadra();
+    verificaOpcao();
+}
+
+public static void exibeMenuQuadra(){
+  aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
+  op = Integer.parseInt(aux);
+}
+
+public static void exibeMenu(){
+    aux = JOptionPane.showInputDialog("Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
+    op = Integer.parseInt(aux);
+}
+public static void verificaOpcao(){
+  switch (op) {
+      case 1:
+      {
           JOptionPane.showMessageDialog(null, "===== Cadastro Quadra =====");
                 
             String aux   = JOptionPane.showInputDialog("Digite o Número: ");
@@ -45,6 +67,45 @@ public class MenuCadastroQuadra{
       }else {
           JOptionPane.showMessageDialog(null, "Erro ao cadastrar quadra!!!");
       }
+    }break;
+
+    case 2:
+    {
+      JOptionPane.showMessageDialog(null, "===== Deletar Quadra =====");
+      ArrayList<Quadra> quadras = QuadraDAO.buscarReservas();
+      
+      for (Quadra q : quadras) {
+          JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
+      }
+      String string = JOptionPane.showInputDialog("Digite o ID da reserva que deseja remover: ");
+      int id = Integer.parseInt(string);
+      
+      Quadra q = new Quadra();
+      q.setId(id);
+      
+      boolean removido = QuadraDAO.deletarReserva(q);
+      
+       if(removido) {
+           JOptionPane.showMessageDialog(null, "Removido com sucesso!!!");
+       }else {
+           JOptionPane.showMessageDialog(null, "Erro ao remover reserva!!!");
+       }
+    }
+       ArrayList <Quadra> quadra = QuadraDAO.buscarReservas();
+          for (Quadra q : quadra) {
+            JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" +"Numero: " 
+            + q.getNumero() + "\nTipo de quadra: " + q.getTipo() + "\nCoberta: " + q.getCoberta() + 
+            "\nArquibancada: " + q.getArquibancada()+ "\nBanco para jogador: " + q.getBanco());
+          }
+        case 4:
+          {
+          JOptionPane.showMessageDialog(null, "Saindo!!"); break;
+          }
+        default:
+          {
+          JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo");
+          }
+       }
     }
 }
 

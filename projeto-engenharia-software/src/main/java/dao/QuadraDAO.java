@@ -45,10 +45,10 @@ public class QuadraDAO {
 			    
 			    quadra.add(q); 
 			}
-			}catch (SQLException e){
+		}catch (SQLException e){
 				
-				e.printStackTrace();
-			}
+			e.printStackTrace();
+		}
 		return quadra;	
 	}
 
@@ -70,7 +70,6 @@ public class QuadraDAO {
             
             if (rowsAffected > 0) {
             	sucesso = true;
-        
             }
 			
       }catch (SQLException e) {
