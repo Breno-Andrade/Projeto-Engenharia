@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+
+import CadastraUsuario.MenuCadastraUsuario;
 import reserva.MenuReserva;
 
 public class MenuPrincipal {
@@ -29,6 +31,7 @@ public class MenuPrincipal {
                 break;
             case 3: 
             // Gestão de usuários
+                MenuCadastraUsuario.verificaOpcao();
                 break;
             case 4:
             // Estatísticas do clube
