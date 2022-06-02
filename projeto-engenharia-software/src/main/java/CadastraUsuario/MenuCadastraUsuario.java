@@ -22,7 +22,7 @@ public class MenuCadastraUsuario {
         rg           = JOptionPane.showInputDialog(null, "Digite o RG: "); 
         cpf          = JOptionPane.showInputDialog("Digite o CPF: ");
         usuario      = JOptionPane.showInputDialog("Digite o nome de Usuario: ");
-        senha        = JOptionPane.showInputDialog("Digite o a senha de sua conta: ");
+        senha        = JOptionPane.showInputDialog("Digite a senha de sua conta: ");
         
         CadastraUsuario u = new CadastraUsuario();
         u.setNome(nome);
@@ -35,7 +35,7 @@ public class MenuCadastraUsuario {
         boolean reserva =  CadastraUsuarioDAO.cadastraUsuario(u);
 
         if(reserva) {
-            JOptionPane.showMessageDialog(null, "Reserva cadastrada com sucesso!!!");
+            JOptionPane.showMessageDialog(null, "usuario cadastrado com sucesso!!!");
         }else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar reserva!!!");
         }
