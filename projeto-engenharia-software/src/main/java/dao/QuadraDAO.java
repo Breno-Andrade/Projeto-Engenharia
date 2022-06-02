@@ -2,57 +2,55 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import cadastroquadra.Quadra;
 import conexao.Conexao;
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class QuadraDAO {
-	private static final String Insert_SQL = "INSERT INTO quadracadastro (numero, tipo, coberta, arquibancada, banco) values (?,?,?,?,?)";
-	//private static final String Select_SQL = "SELECT * FROM public.quadracadastro";
-	//private static final String Delete_SQL = "DELETE FROM public.quadracadastro WHERE id = ?";	
+	private static final String Insert_SQL = "INSERT INTO testee (numero, tipo, coberta, arquibancada, banco_jogador) values (?,?,?,?,?)";
+	private static final String Select_SQL = "SELECT * FROM public.testee";
+	private static final String Delete_SQL = "DELETE FROM public.testee WHERE id = ?";	
 
-	// public static ArrayList<Quadra> buscarReservas(){
+	public static ArrayList<Quadra> buscarReservas(){
 		
-	// 	ArrayList <Quadra> quadra = new ArrayList();
+		ArrayList <Quadra> quadra = new ArrayList();
 		
-	// 	try {
+		try {
 			
-	// 		Connection conexao = Conexao.getConnection();
-	// 		PreparedStatement stmt = conexao.prepareStatement (Select_SQL);
+			Connection conexao = Conexao.getConnection();
+			PreparedStatement stmt = conexao.prepareStatement (Select_SQL);
 			
-	// 		ResultSet rs =stmt.executeQuery();
+			ResultSet rs =stmt.executeQuery();
 		
-	// 		while (rs.next()) {
-	// 			int id = rs.getInt ("id");
-	// 		    String nome= rs.getString("nome");
-	// 		    String cpf = rs.getString("cpf");
-	// 		    String tipo_quadra = rs.getString("tipo_quadra");
-	// 		    String dia_mes  = rs.getString("dia_mes");
-	// 		    String hora_inicio = rs.getString("hora_inicio");
-	// 		    String hora_termino = rs.getString("hora_termino");
-  
-	// 		    Quadra q = new Quadra();
-	// 		    q.setId(id);
-	// 		    q.setNome(nome);
-	// 		    q.setCpf(cpf);
-	// 		    q.setTipoQuadra(tipo_quadra);
-	// 		    q.setDia_mes(dia_mes);
-	// 		    q.setHora_inicio(hora_inicio);
-	// 		    q.setHora_termino(hora_termino);
+			while (rs.next()) {
+				int id = rs.getInt ("id");
+			    int numero= rs.getInt("numero");
+			    String tipo = rs.getString("tipo");
+			    String coberta = rs.getString("coberta");
+			    String arquibancada  = rs.getString("arquibancada");
+			    String banco = rs.getString("banco_jogador");
 			    
+			    Quadra q = new Quadra();
+
+			    q.setId(id);
+				q.setNumero(numero);
+			    q.setTipo(tipo);
+			    q.setCoberta(coberta);
+			    q.setArquibancada(arquibancada);
+			    q.setBanco(banco);
 			    
-	// 		    quadra.add(q);
-			    
-	// 		}
-	// 		}catch (SQLException e){
+			    quadra.add(q); 
+			}
+			}catch (SQLException e){
 				
-	// 			e.printStackTrace();
-	// 		}
-	// 	return quadra;
-		
-	// 	}
+				e.printStackTrace();
+			}
+		return quadra;	
+	}
 
 	public static boolean reservarQuadra(Quadra q){
 		
@@ -68,8 +66,6 @@ public class QuadraDAO {
             stmt.setString(4, q.getArquibancada());
             stmt.setString(5, q.getBanco());
             
-            
-            
             int rowsAffected = stmt.executeUpdate();
             
             if (rowsAffected > 0) {
@@ -83,24 +79,23 @@ public class QuadraDAO {
 		return sucesso;
         }
 	
-	// public static boolean deletarReserva (Quadra q) {
-	// 	boolean sucesso = false;
+	public static boolean deletarReserva (Quadra q) {
+		boolean sucesso = false;
 
-	    
-	//     try {
-	//         Connection conexao = Conexao.getConnection(); 
-	//         PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
+	    try {
+	        Connection conexao = Conexao.getConnection(); 
+	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
 
-	//             stmt.setInt(1, q.getId());
+	            stmt.setInt(1, q.getId());
 
-	//             int rowsAffected = stmt.executeUpdate();
+	            int rowsAffected = stmt.executeUpdate();
 
-	//             if (rowsAffected > 0){
-	//             	sucesso = true; 
-	//             }        
-	// 	  } catch (SQLException e ){
-	// 		  e.printStackTrace();
-	//     }
-	//     return sucesso;
-	// }
+	            if (rowsAffected > 0){
+	            	sucesso = true; 
+	            }        
+		  } catch (SQLException e ){
+			  e.printStackTrace();
+	    }
+	    return sucesso;
+	}
 }

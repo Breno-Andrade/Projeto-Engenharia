@@ -14,8 +14,8 @@ public class Quadra {
 	public int getNumero() {
         return numero;
     }
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumero(int numero2) {
+        this.numero = numero2;
     }
 
     private String tipo;
@@ -32,11 +32,19 @@ public class Quadra {
         return coberta;
     }
 
+    public void setCoberta(String coberta) {
+        this.coberta = coberta;
+    }
+
     private String arquibancada;
 	public String getArquibancada() {
         return arquibancada;
     }
-
+    
+    public void setArquibancada(String arquibancada) {
+        this.arquibancada = arquibancada;
+    }
+   
     private String banco;
     public String getBanco() {
         return banco;
@@ -44,12 +52,6 @@ public class Quadra {
     
     public void setBanco(String banco) {
         this.banco = banco;
-    }
-
-    public void setCoberta(String coberta2) {
-    }
-
-    public void setArquibancada(String arquibancada2) {
     }
     
 }
