@@ -2,6 +2,12 @@ package cadastroquadra;
 
 public class Quadra {
     private int id;
+    private int numero;
+    private String tipo;
+    private String coberta;
+    private String arquibancada;
+    private String banco;
+
 
     public int getId() {
         return id;
@@ -11,17 +17,13 @@ public class Quadra {
         this.id = id;
     }
 
-    private int numero;
-
     public int getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero2) {
-        this.numero = numero2;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
-
-    private String tipo;
 
     public String getTipo() {
         return tipo;
@@ -31,8 +33,6 @@ public class Quadra {
         this.tipo = tipo;
     }
 
-    private String coberta;
-
     public String getCoberta() {
         return coberta;
     }
@@ -41,8 +41,6 @@ public class Quadra {
         this.coberta = coberta;
     }
 
-    private String arquibancada;
-
     public String getArquibancada() {
         return arquibancada;
     }
@@ -50,8 +48,6 @@ public class Quadra {
     public void setArquibancada(String arquibancada) {
         this.arquibancada = arquibancada;
     }
-
-    private String banco;
 
     public String getBanco() {
         return banco;

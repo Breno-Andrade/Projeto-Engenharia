@@ -16,7 +16,7 @@ public class MenuCadastroQuadra {
 
   public static void exibeMenu() {
     aux = JOptionPane.showInputDialog(
-        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Reservar \n 2 - Deletar \n 3 - Consultar reservas \n 4 - Sair");
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar quadra \n 4 - Sair");
     op = Integer.parseInt(aux);
   }
 
@@ -28,7 +28,7 @@ public class MenuCadastroQuadra {
         String aux = JOptionPane.showInputDialog("Digite o Número: ");
         int numero = Integer.parseInt(aux);
 
-        String[] valores = { "Saibro", "Tenis rápido", "Bea-th tenis" };
+        String[] valores = { "Saibro", "Tenis rápido", "Beath tenis" };
         tipo = (String) JOptionPane.showInputDialog(null, "Escolha um tipo de quadra", "quadra",
             JOptionPane.QUESTION_MESSAGE, null, valores, valores[0]);
 
@@ -58,7 +58,8 @@ public class MenuCadastroQuadra {
         } else {
           JOptionPane.showMessageDialog(null, "Erro ao cadastrar quadra!!!");
         }
-      }break;
+      }
+        break;
 
       case 2: {
         JOptionPane.showMessageDialog(null, "===== Deletar Quadra =====");
@@ -80,7 +81,8 @@ public class MenuCadastroQuadra {
         } else {
           JOptionPane.showMessageDialog(null, "Erro ao remover quadra!!!");
         }
-      }break;
+      }
+        break;
 
       case 3:
         ArrayList<Quadra> quadra = QuadraDAO.buscarReservas();
@@ -90,10 +92,29 @@ public class MenuCadastroQuadra {
               "\nArquibancada: " + q.getArquibancada() + "\nBanco para jogador: " + q.getBanco());
         }
         break;
-        case 4: {
-          Quadra q = new Quadra();
-          
-        }break;
+      case 4: {
+        String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
+        int id = Integer.parseInt(string);
+        Quadra q = new Quadra();
+
+        String aux = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
+        int numero = Integer.parseInt(aux);
+        q.setId(id);
+         q.setNumero(numero);
+         q.setTipo(tipo);
+         q.setCoberta(coberta);
+         q.setArquibancada(arquibancada);
+         q.setBanco(banco_jogador);
+
+        // boolean reserva = QuadraDAO.atualizarQuadra(q);
+
+        // if (reserva) {
+        //   JOptionPane.showMessageDialog(null, "Quadra cadastrada com sucesso!!!");
+        // } else {
+        //   JOptionPane.showMessageDialog(null, "Erro ao cadastrar quadra!!!");
+        // }
+      }
+        break;
 
       case 5: {
         JOptionPane.showMessageDialog(null, "Saindo!!");
