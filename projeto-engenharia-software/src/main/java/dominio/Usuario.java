@@ -1,31 +1,68 @@
 package dominio;
 
 public class Usuario {
-    private String usuario;
+    private String nome;
+    private String usuariovf;
+    private String senhavf;
+    private String email;
     private String senha;
-
-    public Usuario(String usuario, String senha) {
-        setUsuario(usuario);
-        setSenha(senha);;
+    private String nivel_permissao;
+    
+    public String getNome() {
+        return nome;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
         return senha;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public void setSenha(String senhaVF) {
-        this.senha = senhaVF;
+    public String getNivel_permissao() {
+        return nivel_permissao;
     }
+
+    public void setNivel_permissao(String nivel_permissao) {
+        this.nivel_permissao = nivel_permissao;
+    }
+
+    public String getUsuariovf() {
+        return usuariovf;
+    }
+
+    public void setUsuariovf(String usuariovf) {
+        this.usuariovf = usuariovf;
+    }
+
+    public String getSenhavf() {
+        return senhavf;
+    }
+
+    public void setSenhavf(String senhavf) {
+        this.senhavf = senhavf;
+    }
+
+    public Usuario(String usuariovf, String senhavf) {
+        setUsuariovf(usuariovf);
+        setSenhavf(senhavf);
+    }
+   
 
     public boolean verificaUsuario(boolean verificacao) {
-        return (usuario.contains("admin") && senha.contains("123"));
+        return (usuariovf.equals("admin") && senhavf.equals("123"));
     }
 }

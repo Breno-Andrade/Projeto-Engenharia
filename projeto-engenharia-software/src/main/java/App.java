@@ -6,10 +6,10 @@ import menus.MenuPrincipal;
 public class App {
     public static void main(String[] args) throws Exception {
         Boolean verificacao = false;
-        String usuario = JOptionPane.showInputDialog(null, "Insira o nome de usuário: ");
-        String senha = JOptionPane.showInputDialog(null, "Insira a senha de usuário: ");
+        String usuariovf = JOptionPane.showInputDialog(null, "Insira o nome de usuário: ");
+        String senhavf = JOptionPane.showInputDialog(null, "Insira a senha de usuário: ");
 
-        Usuario testeLogin = new Usuario(usuario, senha);
+        Usuario testeLogin = new Usuario(usuariovf, senhavf);
         MenuPrincipal menu = new MenuPrincipal(0);
         
          if (testeLogin.verificaUsuario(verificacao) == true){

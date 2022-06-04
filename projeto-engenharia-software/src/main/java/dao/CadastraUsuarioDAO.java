@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import CadastraUsuario.CadastraUsuario;
-import conexao.Conexao;
+import dominio.Conexao;
 
 public class CadastraUsuarioDAO {
     private static final String  Insert_SQL = "INSERT INTO usuario (nome, email, senha, nivel_permissao) values (?,?,?,?)";
