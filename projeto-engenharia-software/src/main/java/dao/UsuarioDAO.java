@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import dominio.Usuario;
 import dominio.Conexao;
 
-public class CadastraUsuarioDAO {
+public class UsuarioDAO {
     private static final String  Insert_SQL = "INSERT INTO usuario (nome, email, senha, nivel_permissao) values (?,?,?,?)";
     
     public static boolean cadastraUsuario(Usuario u){
