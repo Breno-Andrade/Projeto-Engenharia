@@ -1,35 +1,27 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import conexao.Conexao;
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 
-
-import reserva.Quadra;
-
-public class QuadraDAO {
+import reserva.Reserva; 
+public class ReservaDAO {
 	private static final String  Insert_SQL = "INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.reservaquadra";
-	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";
-	
-	private static final String User_SQL = "postgres";
-	private static final String Url_SQL = "jdbc:postgresql://localhost/reserva";
-	private static final String Password_SQL = "017017";
+	private static final String Delete_SQL = "DELETE FROM public.reservaquadra WHERE id = ?";	
 
-	public static ArrayList<Quadra> buscarReservas(){
+	public static ArrayList<Reserva> buscarReservas(){
 		
-		ArrayList <Quadra> quadra = new ArrayList();
+		ArrayList <Reserva> quadra = new ArrayList();
 		
 		try {
 			
-			Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);
-			
+			Connection conexao = Conexao.getConnection();
 			PreparedStatement stmt = conexao.prepareStatement (Select_SQL);
 			
 			ResultSet rs =stmt.executeQuery();
@@ -43,7 +35,7 @@ public class QuadraDAO {
 			    String hora_inicio = rs.getString("hora_inicio");
 			    String hora_termino = rs.getString("hora_termino");
   
-			    Quadra q = new Quadra();
+			    Reserva q = new Reserva();
 			    q.setId(id);
 			    q.setNome(nome);
 			    q.setCpf(cpf);
@@ -64,12 +56,12 @@ public class QuadraDAO {
 		
 		}
 
-	public static boolean reservarQuadra(Quadra q){
+	public static boolean reservarQuadra(Reserva q){
 		
 		boolean sucesso = false;
         
 		try {
-			Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);
+			Connection conexao = Conexao.getConnection();
             PreparedStatement stmt = conexao.prepareStatement (Insert_SQL);
             
             stmt.setString(1, q.getNome());
@@ -86,18 +78,19 @@ public class QuadraDAO {
             	sucesso = true;
         
             }
+			
       }catch (SQLException e) {
             	e.printStackTrace();
             }
 		return sucesso;
         }
 	
-	public static boolean deletarReserva (Quadra q) {
+	public static boolean deletarReserva (Reserva q) {
 		boolean sucesso = false;
 
 	    
 	    try {
-	        Connection conexao = DriverManager.getConnection(Url_SQL, User_SQL, Password_SQL);  
+	        Connection conexao = Conexao.getConnection(); 
 	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
 
 	            stmt.setInt(1, q.getId());
