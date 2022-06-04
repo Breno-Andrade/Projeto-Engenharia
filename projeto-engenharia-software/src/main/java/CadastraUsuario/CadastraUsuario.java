@@ -2,41 +2,21 @@ package CadastraUsuario;
 
 public class CadastraUsuario {
     private String nome;
-    private String sobrenome;
-    private String rg;
-    private String cpf;
-    private String usuario;
+    private String email;
     private String senha;
-
+    private String nivel_permissao;
+    
     public String getNome() {
         return nome;
     }
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getSobrenome() {
-        return sobrenome;
+    public String getEmail() {
+        return email;
     }
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-    public String getRg() {
-        return rg;
-    }
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getSenha() {
         return senha;
@@ -44,6 +24,10 @@ public class CadastraUsuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+    public String getNivel_permissao() {
+        return nivel_permissao;
+    }
+    public void setNivel_permissao(String nivel_permissao) {
+        this.nivel_permissao = nivel_permissao;
+    }  
 }
