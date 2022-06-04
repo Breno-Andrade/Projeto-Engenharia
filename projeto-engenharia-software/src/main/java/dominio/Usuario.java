@@ -1,9 +1,11 @@
+package dominio;
+
 public class Usuario {
     protected String usuario;
     protected String senha;
     protected boolean verificacao;
 
-    protected Usuario(String usuario, String senha) {
+    public Usuario(String usuario, String senha) {
         setUsuario(usuario);
         setSenha(senha);;
     }
