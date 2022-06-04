@@ -6,36 +6,20 @@ import dao.CadastraUsuarioDAO;
 
 
 public class MenuCadastraUsuario {
-    private static String nome;
-    private static String sobrenome;
-    private static String rg;
-    private static String cpf;
-    private static String usuario;
-    private static String senha;   
-
-
     public static void verificaOpcao(){
         JOptionPane.showMessageDialog(null, "===== Cadastra Usuario =====");
         
-        nome         = JOptionPane.showInputDialog("Digite o Nome: ");
-        sobrenome    = JOptionPane.showInputDialog("Digite o Sobrenome: ");
-        rg           = JOptionPane.showInputDialog(null, "Digite o RG: "); 
-        cpf          = JOptionPane.showInputDialog("Digite o CPF: ");
-        usuario      = JOptionPane.showInputDialog("Digite o nome de Usuario: ");
-        senha        = JOptionPane.showInputDialog("Digite a senha de sua conta: ");
-        
         CadastraUsuario u = new CadastraUsuario();
-        u.setNome(nome);
-        u.setSobrenome(sobrenome);
-        u.setRg(rg);
-        u.setCpf(cpf);
-        u.setUsuario(usuario);
-        u.setSenha(senha);
+
+        u.setNome(JOptionPane.showInputDialog("Digite o Nome: "));
+        u.setEmail(JOptionPane.showInputDialog("Digite o Email: "));
+        u.setSenha(JOptionPane.showInputDialog("Digite a Senha: "));
+        u.setNivel_permissao(JOptionPane.showInputDialog("Digite o nivel de permissao: "));
 
         boolean reserva =  CadastraUsuarioDAO.cadastraUsuario(u);
 
         if(reserva) {
-            JOptionPane.showMessageDialog(null, "usuario cadastrado com sucesso!!!");
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!!!");
         }else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar reserva!!!");
         }

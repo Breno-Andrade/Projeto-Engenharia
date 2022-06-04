@@ -44,9 +44,7 @@ public class ReservaDAO {
 			    q.setHora_inicio(hora_inicio);
 			    q.setHora_termino(hora_termino);
 			    
-			    
 			    quadra.add(q);
-			    
 			}
 			}catch (SQLException e){
 				
