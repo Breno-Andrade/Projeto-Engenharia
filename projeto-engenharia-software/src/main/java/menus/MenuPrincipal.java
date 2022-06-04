@@ -2,8 +2,6 @@ package menus;
 
 import javax.swing.JOptionPane;
 
-import CadastraUsuario.MenuCadastraUsuario;
-
 public class MenuPrincipal {
     private String aux;
     private int opcao;
@@ -32,7 +30,7 @@ public class MenuPrincipal {
                 break;
             case 3: 
             // Gestão de usuários
-                MenuCadastraUsuario.verificaOpcao();
+                MenuUsuario.verificaOpcao();
                 break;
             case 4:
             // Estatísticas do clube

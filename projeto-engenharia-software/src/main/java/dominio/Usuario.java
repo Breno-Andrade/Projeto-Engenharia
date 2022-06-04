@@ -55,11 +55,6 @@ public class Usuario {
     public void setSenhavf(String senhavf) {
         this.senhavf = senhavf;
     }
-
-    public Usuario(String usuariovf, String senhavf) {
-        setUsuariovf(usuariovf);
-        setSenhavf(senhavf);
-    }
    
 
     public boolean verificaUsuario(boolean verificacao) {

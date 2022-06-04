@@ -1,15 +1,15 @@
-package CadastraUsuario;
+package menus;
 
 import javax.swing.JOptionPane;
-
+import dominio.Usuario;
 import dao.CadastraUsuarioDAO;
 
 
-public class MenuCadastraUsuario {
+public class MenuUsuario {
    public static void verificaOpcao(){
         JOptionPane.showMessageDialog(null, "===== Cadastra Usuario =====");
         
-        CadastraUsuario u = new CadastraUsuario();
+        Usuario u = new Usuario();
         u.setNome(JOptionPane.showInputDialog("Digite o nome: "));
         u.setEmail(JOptionPane.showInputDialog("Digite o email: "));
         u.setSenha(JOptionPane.showInputDialog("Digite a senha: "));
