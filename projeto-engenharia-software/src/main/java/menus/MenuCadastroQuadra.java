@@ -1,8 +1,9 @@
-package cadastroquadra;
+package menus;
 
 import javax.swing.JOptionPane;
 
 import dao.QuadraDAO;
+import dominio.Quadra;
 
 public class MenuCadastroQuadra{
     public static void main(String[] args) {

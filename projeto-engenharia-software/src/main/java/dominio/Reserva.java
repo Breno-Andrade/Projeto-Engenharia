@@ -1,4 +1,4 @@
-package reserva;
+package dominio;
 
 public class Reserva {
 	private int id;

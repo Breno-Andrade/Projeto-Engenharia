@@ -5,12 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import conexao.Conexao;
 
-// SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
-
-
-import reserva.Reserva; 
+import dominio.Conexao;
+import dominio.Reserva; 
 public class ReservaDAO {
 	private static final String  Insert_SQL = "INSERT INTO reservaquadra (nome, cpf, tipo_quadra, dia_mes, hora_inicio, hora_termino) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.reservaquadra";

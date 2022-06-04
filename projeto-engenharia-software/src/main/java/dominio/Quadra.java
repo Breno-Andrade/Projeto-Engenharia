@@ -1,4 +1,4 @@
-package cadastroquadra;
+package dominio;
 
 public class Quadra {
     private int id;

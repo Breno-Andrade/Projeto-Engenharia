@@ -1,4 +1,4 @@
-package conexao;
+package dominio;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class Conexao {
     static final String Url_SQL = "jdbc:postgresql://localhost:5432/reserva";
     static final String User_SQL = "postgres";
-    static final String Password_SQL = "017017";
+    static final String Password_SQL = "admin";
     static Connection connection;
 
     public static Connection getConnection() {

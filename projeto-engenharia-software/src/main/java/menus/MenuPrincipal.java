@@ -1,11 +1,12 @@
+package menus;
+
 import javax.swing.JOptionPane;
-import reserva.MenuReserva;
 
 public class MenuPrincipal {
     private String aux;
     private int opcao;
     
-    MenuPrincipal(int opcao) {
+    public MenuPrincipal(int opcao) {
         this.opcao = opcao;
     }
 

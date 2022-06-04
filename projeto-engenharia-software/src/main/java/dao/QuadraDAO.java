@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import cadastroquadra.Quadra;
-import conexao.Conexao;
+import dominio.Conexao;
+import dominio.Quadra;
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class QuadraDAO {
