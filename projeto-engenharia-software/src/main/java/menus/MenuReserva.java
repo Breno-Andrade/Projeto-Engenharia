@@ -1,10 +1,11 @@
-package reserva;
+package menus;
 
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import dao.ReservaDAO;
+import dominio.Reserva;
 
 public class MenuReserva {
 
