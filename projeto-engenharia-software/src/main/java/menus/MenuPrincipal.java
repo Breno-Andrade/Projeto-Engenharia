@@ -22,15 +22,15 @@ public class MenuPrincipal {
                 // Reserva menuReserva = new Reserva(); 
                 // menuReserva.exibeMenu();
                 // menuReserva.verificaOpcao();
-                MenuReserva.exibeMenu();
-                MenuReserva.verificaOpcao();
+                ReservaMenu.exibeMenu();
+                ReservaMenu.verificaOpcao();
                 break;
             case 2:
             // Gestão de quadras 
                 break;
             case 3: 
             // Gestão de usuários
-                MenuUsuario.verificaOpcao();
+                UsuarioMenu.verificaOpcao();
                 break;
             case 4:
             // Estatísticas do clube

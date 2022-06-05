@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import dao.ReservaDAO;
 import dominio.Reserva;
 
-public class MenuReserva {
+public class ReservaMenu {
 
     static String nome;
     static String cpf;
@@ -18,7 +18,7 @@ public class MenuReserva {
     static int op;
     static String aux;
 
-    public MenuReserva(){
+    public ReservaMenu(){
         exibeMenu();
         verificaOpcao();
     }

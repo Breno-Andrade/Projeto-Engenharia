@@ -5,7 +5,7 @@ import dominio.Usuario;
 import dao.UsuarioDAO;
 
 
-public class MenuUsuario {
+public class UsuarioMenu {
    public static void verificaOpcao(){
         JOptionPane.showMessageDialog(null, "===== Cadastra Usuario =====");
         
