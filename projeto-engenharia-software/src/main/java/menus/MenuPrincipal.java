@@ -30,7 +30,7 @@ public class MenuPrincipal {
                 break;
             case 3: 
             // Gestão de usuários
-                MenuUsuario.verificaOpcao();
+                MenuUsuario.cadastrarUsuario();
                 break;
             case 4:
             // Estatísticas do clube

@@ -2,11 +2,11 @@ package menus;
 
 import javax.swing.JOptionPane;
 import dominio.Usuario;
-import dao.CadastraUsuarioDAO;
+import dao.UsuarioDAO;
 
 
 public class MenuUsuario {
-   public static void verificaOpcao(){
+   public static void cadastrarUsuario(){
         JOptionPane.showMessageDialog(null, "===== Cadastra Usuario =====");
         
         Usuario u = new Usuario();
@@ -15,13 +15,21 @@ public class MenuUsuario {
         u.setSenha(JOptionPane.showInputDialog("Digite a senha: "));
         u.setNivel_permissao(JOptionPane.showInputDialog("Digite o nivel de permissão da conta: "));
 
-        boolean reserva =  CadastraUsuarioDAO.cadastraUsuario(u);
+        boolean reserva =  UsuarioDAO.cadastraUsuario(u);
 
         if(reserva) {
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!!!");
         }else {
             JOptionPane.showMessageDialog(null, "Erro durante o processo de cadastramento!!!");
         }
+    }
+
+    private static int getInt(String showInputDialog) {
+    return 0;
+}
+
+    public static void buscarUsuario(){
+
     }
 }
 
