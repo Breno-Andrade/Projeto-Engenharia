@@ -58,7 +58,7 @@ public class QuadraMenu {
         q.setBanco(banco_jogador);
         q.setStatus(status);
 
-        boolean reserva = QuadraDAO.reservarQuadra(q);
+        boolean reserva = QuadraDAO.cadastrarQuadra(q);
 
         if (reserva) {
           JOptionPane.showMessageDialog(null, "Quadra cadastrada com sucesso!!!");
@@ -94,7 +94,7 @@ public class QuadraMenu {
         for (Quadra q : quadra) {
           JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + "Numero: "
               + q.getNumero() + "\nTipo de quadra: " + q.getTipo() + "\nCoberta: " + q.getCoberta() +
-              "\nArquibancada: " + q.getArquibancada() + "\nBanco para jogador: " + q.getBanco());
+              "\nArquibancada: " + q.getArquibancada() + "\nBanco para jogador: " + q.getBanco() + "\nStatus: " + q.getStatus());
         }break;
 
       case 4: {
@@ -105,6 +105,7 @@ public class QuadraMenu {
         
         JOptionPane.showMessageDialog(null, "ID da quadra: [" + q.getId() + "]" +"\nNumero da quadra: " + q.getNumero() + "\nStatus da quadra: " + q.getStatus() );
         }
+        
         String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
         int id = Integer.parseInt(string);
         
