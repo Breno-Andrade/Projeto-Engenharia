@@ -15,7 +15,6 @@ public class QuadraDAO {
 	private static final String Select_SQL = "SELECT * FROM public.testee";
 	private static final String Delete_SQL = "DELETE FROM public.testee WHERE id = ?";
 	private static final String Update_SQL = "UPDATE public.testee SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ? WHERE id = ?";
-	private static final String Update_SQL2 = "UPDATE public.testee SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ?, status = ? WHERE id = ?";
 
 	public static ArrayList<Quadra> buscarQuadra(){
 		
@@ -112,27 +111,7 @@ public class QuadraDAO {
 		stmt.setString(3, q.getCoberta());
 		stmt.setString(4, q.getArquibancada());
 		stmt.setString(5, q.getBanco());
-		stmt.setInt(6, q.getId());
-		
-		int rowsAffected = stmt.executeUpdate();
-
-			if (rowsAffected > 0) {
-			sucesso = true; 
-			}     
-	} catch (SQLException e){
-		e.printStackTrace();
-	}
-		return sucesso;
-	}
-
-	public static boolean statusQuadra(Quadra q){
-		boolean sucesso = false;
-		
-	try{
-		Connection conexao = Conexao.getConnection(); 
-	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL2);
-		
-		stmt.setString(2, q.getStatus());
+		stmt.setString(6, q.getStatus());
 		stmt.setInt(6, q.getId());
 		
 		int rowsAffected = stmt.executeUpdate();

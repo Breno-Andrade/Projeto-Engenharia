@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import dao.QuadraDAO;
 import dominio.Quadra;
 
-public class MenuCadastroQuadra {
+public class QuadraMenu {
   static String tipo;
   static String coberta;
   static String arquibancada;
@@ -18,7 +18,7 @@ public class MenuCadastroQuadra {
 
   public static void exibeMenu() {
     aux = JOptionPane.showInputDialog(
-        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar  \n 4 - Atualizar  \n 5 - Desbloquear ou Bloquear \n 6 - Sair");
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar  \n 4 - Atualizar \n 6 - Sair");
     op = Integer.parseInt(aux);
   }
 
@@ -46,12 +46,17 @@ public class MenuCadastroQuadra {
         banco_jogador = (String) JOptionPane.showInputDialog(null, "Possui bancos para os jogadores? ", "quadra",
             JOptionPane.QUESTION_MESSAGE, null, valores4, valores4[0]);
 
+        String[] valores5 = { "Desbloqueada", "Bloqueada", };
+        status = (String) JOptionPane.showInputDialog(null, "Informe a situação da quadra? ", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores5, valores5[0]);
+
         Quadra q = new Quadra();
         q.setNumero(numero);
         q.setTipo(tipo);
         q.setCoberta(coberta);
         q.setArquibancada(arquibancada);
         q.setBanco(banco_jogador);
+        q.setStatus(status);
 
         boolean reserva = QuadraDAO.reservarQuadra(q);
 
@@ -67,7 +72,7 @@ public class MenuCadastroQuadra {
         ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
 
         for (Quadra q : quadras) {
-          JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
+          JOptionPane.showMessageDialog(null, "ID da quadra: [" + q.getId() + "]" +"\nNumero da quadra: " + q.getNumero() + "\nStatus da quadra: " + q.getStatus() );
         }
         String string = JOptionPane.showInputDialog("Digite o ID da reserva que deseja remover: ");
         int id = Integer.parseInt(string);
@@ -97,9 +102,9 @@ public class MenuCadastroQuadra {
         ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
 
         for (Quadra q : quadras){
-          JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
+        
+        JOptionPane.showMessageDialog(null, "ID da quadra: [" + q.getId() + "]" +"\nNumero da quadra: " + q.getNumero() + "\nStatus da quadra: " + q.getStatus() );
         }
-
         String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
         int id = Integer.parseInt(string);
         
@@ -125,12 +130,17 @@ public class MenuCadastroQuadra {
         String[] valores4 = { "SIM", "NÃO", };
         banco_jogador = (String) JOptionPane.showInputDialog(null, "Possui bancos para os jogadores? ", "quadra",
             JOptionPane.QUESTION_MESSAGE, null, valores4, valores4[0]);
+
+        String[] valores5 = { "Desbloqueada", "Bloqueada", };
+        status = (String) JOptionPane.showInputDialog(null, "Informe a situação da quadra? ", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores5, valores5[0]);
         
          q.setNumero(numero);
          q.setTipo(tipo);
          q.setCoberta(coberta);
          q.setArquibancada(arquibancada);
          q.setBanco(banco_jogador);
+         q.setStatus(status);
 
          boolean reserva = QuadraDAO.atualizarQuadra(q);
 
@@ -141,36 +151,7 @@ public class MenuCadastroQuadra {
          }
       }break;
 
-        case 5: {
-          JOptionPane.showMessageDialog(null, "===== Desbloquear e bloquear quadra =====");
-          ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
-  
-          for (Quadra q : quadras){
-            JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
-          }
-  
-          String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
-          int id = Integer.parseInt(string);
-          
-          Quadra q = new Quadra();
-          q.setId(id);
-          
-          String[] valores4 = {"Desbloqueado", "Bloqueado", };
-          status = (String) JOptionPane.showInputDialog(null, "Informe o status da quadra ", "status",
-              JOptionPane.QUESTION_MESSAGE, null, valores4, valores4[0]);
-          
-           q.setStatus(status);
-  
-           boolean reserva = QuadraDAO.statusQuadra(q);
-  
-           if (reserva) {
-             JOptionPane.showMessageDialog(null, "Status da quadra alterado com sucesso!!!");
-           } else {
-             JOptionPane.showMessageDialog(null, "Erro ao alterar status da quadra!!!");
-           }
-        }break;
-
-      case 6: {
+      case 5: {
         JOptionPane.showMessageDialog(null, "Saindo!!");
         break;
       }
