@@ -11,6 +11,7 @@ import dominio.Quadra;
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class QuadraDAO {
+
 	private static final String Insert_SQL = "INSERT INTO cadastroquadra (numero, tipo, coberta, arquibancada, banco_jogador, status) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.cadastroquadra";
 	private static final String Delete_SQL = "DELETE FROM public.cadastroquadra WHERE id = ?";
@@ -81,8 +82,9 @@ public class QuadraDAO {
             }
 		return sucesso;
         }
-	
+
 	public static boolean deletarQuadra (Quadra q) {
+
 		boolean sucesso = false;
 
 	    try {
@@ -101,7 +103,6 @@ public class QuadraDAO {
 	    }
 	    return sucesso;
 	}
-
 	public static boolean atualizarQuadra(Quadra q){
 		boolean sucesso = false;
 		

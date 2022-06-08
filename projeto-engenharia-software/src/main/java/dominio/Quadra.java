@@ -9,15 +9,6 @@ public class Quadra {
     public void setId(int id) {
         this.id = id;
     }
-    private String status;
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
     private int numero;
 	public int getNumero() {
         return numero;

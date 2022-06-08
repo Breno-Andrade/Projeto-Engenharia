@@ -26,9 +26,9 @@ public class MenuPrincipal {
                 ReservaMenu.verificaOpcao();
                 break;
             case 2:
-            QuadraMenu.exibeMenu(); 
-            QuadraMenu.verificaOpcao();
             // Gestão de quadras 
+                QuadraMenu.exibeMenu(); 
+                QuadraMenu.verificaOpcao();          
                 break;
             case 3: 
             // Gestão de usuários
