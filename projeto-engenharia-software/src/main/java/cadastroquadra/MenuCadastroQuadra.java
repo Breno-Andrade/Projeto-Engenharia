@@ -16,7 +16,7 @@ public class MenuCadastroQuadra {
 
   public static void exibeMenu() {
     aux = JOptionPane.showInputDialog(
-        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar quadra \n 4 - Sair");
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar  \n 4 - Atualizar  \n 5 - Sair");
     op = Integer.parseInt(aux);
   }
 
@@ -63,7 +63,7 @@ public class MenuCadastroQuadra {
 
       case 2: {
         JOptionPane.showMessageDialog(null, "===== Deletar Quadra =====");
-        ArrayList<Quadra> quadras = QuadraDAO.buscarReservas();
+        ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
 
         for (Quadra q : quadras) {
           JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
@@ -74,7 +74,7 @@ public class MenuCadastroQuadra {
         Quadra q = new Quadra();
         q.setId(id);
 
-        boolean removido = QuadraDAO.deletarReserva(q);
+        boolean removido = QuadraDAO.deletarQuadra(q);
 
         if (removido) {
           JOptionPane.showMessageDialog(null, "Quadra removida com sucesso!!!");
@@ -85,7 +85,7 @@ public class MenuCadastroQuadra {
         break;
 
       case 3:
-        ArrayList<Quadra> quadra = QuadraDAO.buscarReservas();
+        ArrayList<Quadra> quadra = QuadraDAO.buscarQuadra();
         for (Quadra q : quadra) {
           JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + "Numero: "
               + q.getNumero() + "\nTipo de quadra: " + q.getTipo() + "\nCoberta: " + q.getCoberta() +
@@ -93,26 +93,52 @@ public class MenuCadastroQuadra {
         }
         break;
       case 4: {
+        JOptionPane.showMessageDialog(null, "===== Atualizar Quadra =====");
+        ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
+
+        for (Quadra q : quadras){
+          JOptionPane.showMessageDialog(null, "[" + q.getId() + "]" + q.getNumero());
+        }
+
         String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
         int id = Integer.parseInt(string);
+        
         Quadra q = new Quadra();
-
-        String aux = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
-        int numero = Integer.parseInt(aux);
         q.setId(id);
+        
+        JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
+        String aux = JOptionPane.showInputDialog("Digite o Número da quadra: ");
+        int numero = Integer.parseInt(aux);
+
+        String[] valores = { "Saibro", "Tenis rápido", "Beath tenis" };
+        tipo = (String) JOptionPane.showInputDialog(null, "Escolha o novo tipo de quadra", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores, valores[0]);
+
+        String[] valores2 = { "SIM", "NÃO", };
+        coberta = (String) JOptionPane.showInputDialog(null, "Possui cobertura? ", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores2, valores2[0]);
+
+        String[] valores3 = { "SIM", "NÃO", };
+        arquibancada = (String) JOptionPane.showInputDialog(null, "Possui arquibancada? ", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores3, valores3[0]);
+
+        String[] valores4 = { "SIM", "NÃO", };
+        banco_jogador = (String) JOptionPane.showInputDialog(null, "Possui bancos para os jogadores? ", "quadra",
+            JOptionPane.QUESTION_MESSAGE, null, valores4, valores4[0]);
+        
          q.setNumero(numero);
          q.setTipo(tipo);
          q.setCoberta(coberta);
          q.setArquibancada(arquibancada);
          q.setBanco(banco_jogador);
 
-        // boolean reserva = QuadraDAO.atualizarQuadra(q);
+         boolean reserva = QuadraDAO.atualizarQuadra(q);
 
-        // if (reserva) {
-        //   JOptionPane.showMessageDialog(null, "Quadra cadastrada com sucesso!!!");
-        // } else {
-        //   JOptionPane.showMessageDialog(null, "Erro ao cadastrar quadra!!!");
-        // }
+         if (reserva) {
+           JOptionPane.showMessageDialog(null, "Quadra cadastrada com sucesso!!!");
+         } else {
+           JOptionPane.showMessageDialog(null, "Erro ao atualizar quadra!!!");
+         }
       }
         break;
 

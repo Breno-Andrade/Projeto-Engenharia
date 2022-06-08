@@ -16,7 +16,7 @@ public class QuadraDAO {
 	private static final String Delete_SQL = "DELETE FROM public.testee WHERE id = ?";
 	private static final String Update_SQL = "UPDATE public.testee SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ? WHERE id = ?";
 
-	public static ArrayList<Quadra> buscarReservas(){
+	public static ArrayList<Quadra> buscarQuadra(){
 		
 		ArrayList <Quadra> quadra = new ArrayList();
 		
@@ -79,7 +79,7 @@ public class QuadraDAO {
 		return sucesso;
         }
 	
-	public static boolean deletarReserva (Quadra q) {
+	public static boolean deletarQuadra (Quadra q) {
 		boolean sucesso = false;
 
 	    try {
