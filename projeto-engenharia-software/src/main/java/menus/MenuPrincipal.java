@@ -27,6 +27,8 @@ public class MenuPrincipal {
                 break;
             case 2:
             // Gestão de quadras 
+                QuadraMenu.exibeMenu(); 
+                QuadraMenu.verificaOpcao();          
                 break;
             case 3: 
             // Gestão de usuários

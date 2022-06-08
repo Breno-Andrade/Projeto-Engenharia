@@ -9,7 +9,6 @@ public class Quadra {
     public void setId(int id) {
         this.id = id;
     }
-
     private int numero;
 	public int getNumero() {
         return numero;
