@@ -10,8 +10,8 @@ import dominio.Conexao;
 import dominio.Usuario;
 
 public class UsuarioDAO {
-    private static final String Insert_SQL = "INSERT INTO reserva (nome, email, senha, nivel_permissao) values (?,?,?,?)";
-    private static final String Select_SQL = "SELECT * FROM public.reserva";
+    private static final String Insert_SQL = "INSERT INTO usuario (nome, email, senha, nivel_permissao) values (?,?,?,?)";
+    private static final String Select_SQL = "SELECT * FROM public.usuario";
     
     public static boolean cadastraUsuario(Usuario u){
 		boolean sucesso = false;
