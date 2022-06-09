@@ -1,19 +1,44 @@
 package dominio;
 
 public class Usuario {
+    private int id;
     private String nome;
     private String usuariovf;
     private String senhavf;
     private String email;
     private String senha;
     private String nivel_permissao;
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getUsuariovf() {
+        return usuariovf;
+    }
+
+    public void setUsuariovf(String usuariovf) {
+        this.usuariovf = usuariovf;
+    }
+
+    public String getSenhavf() {
+        return senhavf;
+    }
+
+    public void setSenhavf(String senhavf) {
+        this.senhavf = senhavf;
     }
 
     public String getEmail() {
@@ -40,24 +65,7 @@ public class Usuario {
         this.nivel_permissao = nivel_permissao;
     }
 
-    public String getUsuariovf() {
-        return usuariovf;
-    }
-
-    public void setUsuariovf(String usuariovf) {
-        this.usuariovf = usuariovf;
-    }
-
-    public String getSenhavf() {
-        return senhavf;
-    }
-
-    public void setSenhavf(String senhavf) {
-        this.senhavf = senhavf;
-    }
-   
-
-    public boolean verificaUsuario(boolean verificacao) {
+    public boolean verificaUsuario(final boolean verificacao) {
         return (usuariovf.equals("admin") && senhavf.equals("123"));
     }
 }
