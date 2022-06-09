@@ -76,6 +76,7 @@ public class UsuarioDAO {
 			stmt.setString(2, u.getEmail());
 			stmt.setString(3, u.getSenha());
 			stmt.setString(4, u.getNivel_permissao());
+			stmt.setInt(5, u.getId());
 			
 			int rowsAffected = stmt.executeUpdate();
 
