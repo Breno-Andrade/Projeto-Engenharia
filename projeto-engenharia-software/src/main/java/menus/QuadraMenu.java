@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import dao.QuadraDAO;
 import dominio.Quadra;
 
-public class MenuCadastroQuadra{
+public class QuadraMenu{
     public static void main(String[] args) {
         String tipo;
         String coberta;
