@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class Conexao {
     static final String Url_SQL = "jdbc:postgresql://localhost:5432/reserva";
     static final String User_SQL = "postgres";
-    static final String Password_SQL = "admin";
+    static final String Password_SQL = "017017";
     static Connection connection;
 
     public static Connection getConnection() {
