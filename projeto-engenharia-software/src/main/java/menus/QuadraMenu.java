@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import dao.ManutencaoDAO;
 import dao.QuadraDAO;
+import dominio.Manutencao;
 import dominio.Quadra;
 
 public class QuadraMenu {
@@ -18,7 +20,7 @@ public class QuadraMenu {
 
   public static void exibeMenu() {
     aux = JOptionPane.showInputDialog(
-        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar  \n 4 - Atualizar \n 6 - Sair");
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar \n 2 - Deletar \n 3 - Consultar  \n 4 - Atualizar \n 5 - Agendar Manutenção \n 6 - Sair");
     op = Integer.parseInt(aux);
   }
 
@@ -152,7 +154,103 @@ public class QuadraMenu {
          }
       }break;
 
-      case 5: {
+      case 5:
+      String string = JOptionPane.showInputDialog(
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar Manutenção \n 2 - Deletar Manutenção\n 3 - Consultar Manutenção \n 4 - Atualizar Manutenção\n 6 - Sair");
+        int select = Integer.parseInt(string);
+        
+        switch (select) {
+          
+          case 1:{ 
+            JOptionPane.showMessageDialog(null, "===== Agendar manutenção =====");
+
+          String dia_inicio = JOptionPane.showInputDialog("Digite o dia e mes de iníco: ");
+          String dia_fim = JOptionPane.showInputDialog("Digite o dia e mes de termino: ");
+          
+  
+          Manutencao m = new Manutencao();
+          m.setDia_inicio(dia_inicio);
+          m.setDia_fim(dia_fim);
+  
+          boolean reserva = ManutencaoDAO.adicionarManutencao(m);
+  
+          if (reserva) {
+            JOptionPane.showMessageDialog(null, "Manutenção agendada com sucesso!!!");
+          } else {
+            JOptionPane.showMessageDialog(null, "Erro ao agendar manutenção!!!");
+          }
+        }break;
+
+          case 2:{
+
+            JOptionPane.showMessageDialog(null, "===== Remover Manutenção =====");
+            ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
+    
+            for (Manutencao m : manutencao) {
+              JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
+            }
+            String aux = JOptionPane.showInputDialog("Digite o ID da manutenção que deseja remover: ");
+            int id = Integer.parseInt(aux);
+    
+            Quadra q = new Quadra();
+            q.setId(id);
+    
+            boolean removido = QuadraDAO.deletarQuadra(q);
+    
+            if (removido) {
+              JOptionPane.showMessageDialog(null, "Manutenção removida com sucesso!!!");
+            } else {
+              JOptionPane.showMessageDialog(null, "Erro ao remover manutenção!!!");
+            }
+          }break;
+          
+          case 3:{
+          ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
+            for (Manutencao m : manutencao) {
+              JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
+            }
+          }break;
+
+            case 4:{
+              JOptionPane.showMessageDialog(null, "===== Atualizar Quadra =====");
+            ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
+
+              for (Manutencao m : manutencao){
+                JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim());
+              }
+              String variavel = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
+              int id = Integer.parseInt(variavel);
+              
+              Manutencao m = new Manutencao();
+              m.setId(id);
+              
+              JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
+              
+              String dia_inicio = JOptionPane.showInputDialog("Digite o dia e mes de iníco: ");
+              String dia_fim = JOptionPane.showInputDialog("Digite o dia e mes de termino: ");
+              
+              m.setDia_inicio(dia_inicio);
+              m.setDia_fim(dia_fim);
+
+            boolean reserva = ManutencaoDAO.atualizarManutencao(m);
+
+            if (reserva) {
+              JOptionPane.showMessageDialog(null, "Manutenção agendada com sucesso!!!");
+            } else {
+              JOptionPane.showMessageDialog(null, "Erro ao agendar manutenção!!!");
+            }
+            }break;
+            case 5: {
+              JOptionPane.showMessageDialog(null, "Saindo!!");
+              break;
+            }
+            default: {
+              JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo!!");
+            }break;
+          }
+        
+
+      case 6: {
         JOptionPane.showMessageDialog(null, "Saindo!!");
         break;
       }

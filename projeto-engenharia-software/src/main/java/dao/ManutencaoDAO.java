@@ -11,7 +11,7 @@ import dominio.Manutencao;
 
 
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
-public class ManutençãoDAO {
+public class ManutencaoDAO {
 
 	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (dia_inicio, dia_fim) values (?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra";
@@ -91,7 +91,7 @@ public class ManutençãoDAO {
 	    }
 	    return sucesso;
 	}
-	public static boolean atualizarQuadra(Manutencao m){
+	public static boolean atualizarManutencao(Manutencao m){
 		boolean sucesso = false;
 		
 	try{
