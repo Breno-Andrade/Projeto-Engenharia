@@ -13,10 +13,10 @@ import dominio.Manutencao;
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class ManutencaoDAO {
 
-	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (dia_inicio, dia_fim) values (?,?)";
+	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (numero, dia_inicio, dia_fim) values (?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra";
 	private static final String Delete_SQL = "DELETE FROM public.manutencaoquadra WHERE id = ?";
-	private static final String Update_SQL = "UPDATE public.manutencaoquadra SET dia_inicio = ?, dia_fim = ?, WHERE id = ?";
+	private static final String Update_SQL = "UPDATE public.manutencaoquadra SET numero = ?, dia_inicio = ?, dia_fim = ?, WHERE id = ?";
 
 	public static ArrayList<Manutencao> buscarManutencao(){
 		
@@ -30,12 +30,14 @@ public class ManutencaoDAO {
 		
 			while (rs.next()) {
 				int id = rs.getInt ("id");
+				int numero = rs.getInt("numero");
 			    String dia_inicio = rs.getString("dia_inicio");
 			    String dia_fim = rs.getString("dia_fim");
 
 			    Manutencao m = new Manutencao();
 
 			    m.setId(id);
+				m.setNumero(numero);
 				m.setDia_inicio(dia_inicio);
 			    m.setDia_fim(dia_fim);
 
@@ -56,8 +58,9 @@ public class ManutencaoDAO {
 			Connection conexao = Conexao.getConnection();
             PreparedStatement stmt = conexao.prepareStatement (Insert_SQL);
             
-            stmt.setString(1, m.getDia_inicio());
-            stmt.setString(2, m.getDia_fim());
+			stmt.setInt(1, m.getNumero());
+            stmt.setString(2, m.getDia_inicio());
+            stmt.setString(3, m.getDia_fim());
             
             int rowsAffected = stmt.executeUpdate();
             
@@ -98,6 +101,7 @@ public class ManutencaoDAO {
 		Connection conexao = Conexao.getConnection(); 
 	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL);
 		
+		stmt.setInt(1, m.getNumero());
 		stmt.setString(2, m.getDia_inicio());
 		stmt.setString(3, m.getDia_fim());
 		

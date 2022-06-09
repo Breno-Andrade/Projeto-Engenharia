@@ -23,4 +23,11 @@ public class Manutencao {
     public void setId(int id) {
         this.id = id;
     }
+    private int numero;
+    public int getNumero() {
+        return numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }

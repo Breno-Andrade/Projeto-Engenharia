@@ -164,30 +164,32 @@ public class QuadraMenu {
           case 1:{ 
             JOptionPane.showMessageDialog(null, "===== Agendar manutenção =====");
 
-          String dia_inicio = JOptionPane.showInputDialog("Digite o dia e mes de iníco: ");
-          String dia_fim = JOptionPane.showInputDialog("Digite o dia e mes de termino: ");
-          
-  
-          Manutencao m = new Manutencao();
-          m.setDia_inicio(dia_inicio);
-          m.setDia_fim(dia_fim);
-  
-          boolean reserva = ManutencaoDAO.adicionarManutencao(m);
-  
-          if (reserva) {
-            JOptionPane.showMessageDialog(null, "Manutenção agendada com sucesso!!!");
-          } else {
-            JOptionPane.showMessageDialog(null, "Erro ao agendar manutenção!!!");
-          }
+            String aux1 = JOptionPane.showInputDialog("Informe o numero da quadra: ");
+            int numero = Integer.parseInt(aux1);
+            String dia_inicio = JOptionPane.showInputDialog("Digite o dia e mes de iníco: ");
+            String dia_fim = JOptionPane.showInputDialog("Digite o dia e mes de termino: ");
+            
+    
+            Manutencao m = new Manutencao();
+            m.setNumero(numero);
+            m.setDia_inicio(dia_inicio);
+            m.setDia_fim(dia_fim);
+    
+            boolean reserva = ManutencaoDAO.adicionarManutencao(m);
+    
+            if (reserva) {
+              JOptionPane.showMessageDialog(null, "Manutenção agendada com sucesso!!!");
+            } else {
+              JOptionPane.showMessageDialog(null, "Erro ao agendar manutenção!!!");
+            }
         }break;
 
           case 2:{
-
             JOptionPane.showMessageDialog(null, "===== Remover Manutenção =====");
             ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
     
             for (Manutencao m : manutencao) {
-              JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
+              JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" + "\nNumero da quadra: " + m.getNumero() +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
             }
             String aux = JOptionPane.showInputDialog("Digite o ID da manutenção que deseja remover: ");
             int id = Integer.parseInt(aux);
@@ -216,7 +218,7 @@ public class QuadraMenu {
             ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
 
               for (Manutencao m : manutencao){
-                JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim());
+                JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" + "\nNumero da quadra: " + m.getNumero() +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
               }
               String variavel = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
               int id = Integer.parseInt(variavel);
@@ -226,9 +228,12 @@ public class QuadraMenu {
               
               JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
               
+              String aux2 = JOptionPane.showInputDialog("Informe o numero da quadra: ");
+              int numero = Integer.parseInt(aux2);
               String dia_inicio = JOptionPane.showInputDialog("Digite o dia e mes de iníco: ");
               String dia_fim = JOptionPane.showInputDialog("Digite o dia e mes de termino: ");
               
+              m.setNumero(numero);
               m.setDia_inicio(dia_inicio);
               m.setDia_fim(dia_fim);
 
