@@ -13,8 +13,8 @@ public class Quadra {
 	public int getNumero() {
         return numero;
     }
-    public void setNumero(int numero2) {
-        this.numero = numero2;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     private String tipo;

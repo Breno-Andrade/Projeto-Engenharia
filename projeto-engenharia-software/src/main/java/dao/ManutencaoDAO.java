@@ -13,10 +13,10 @@ import dominio.Manutencao;
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class ManutencaoDAO {
 
-	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (numero, dia_inicio, dia_fim) values (?,?,?)";
-	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra";
-	private static final String Delete_SQL = "DELETE FROM public.manutencaoquadra WHERE id = ?";
-	private static final String Update_SQL = "UPDATE public.manutencaoquadra SET numero = ?, dia_inicio = ?, dia_fim = ?, WHERE id = ?";
+	private static final String Insert_SQL = "INSERT INTO manutencaoquadra2 (numero, dia_inicio, dia_fim) values (?,?,?)";
+	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra2";
+	private static final String Delete_SQL = "DELETE FROM public.manutencaoquadra2 WHERE id = ?";
+	private static final String Update_SQL = "UPDATE public.manutencaoquadra2 SET numero = ?, dia_inicio = ?, dia_fim = ?, WHERE id = ?";
 											
 
 	public static ArrayList<Manutencao> buscarManutencao(){
@@ -52,7 +52,6 @@ public class ManutencaoDAO {
 	}
 
 	public static boolean adicionarManutencao(Manutencao m){
-		
 		boolean sucesso = false;
         
 		try {
@@ -69,7 +68,7 @@ public class ManutencaoDAO {
             	sucesso = true;
             }
 			
-      }catch (SQLException e) {
+      		}catch (SQLException e) {
             	e.printStackTrace();
             }
 		return sucesso;
@@ -95,7 +94,6 @@ public class ManutencaoDAO {
 	    }
 	    return sucesso;
 	}
-	
 	public static boolean atualizarManutencao(Manutencao m){
 		boolean sucesso = false;
 		
@@ -119,4 +117,5 @@ public class ManutencaoDAO {
 		return sucesso;
 	}
 }
+
 
