@@ -39,10 +39,10 @@ public class MenuPrincipal {
                 opcao = Integer.parseInt(aux);
                 switch (opcao) {
                     case 1:
-                        MenuUsuario.cadastrarUsuario();
+                        UsuarioMenu.cadastrarUsuario();
                         break;
                     case 2:
-                        MenuUsuario.buscarUsuario();
+                        UsuarioMenu.buscarUsuario();
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opção Invalida!");
