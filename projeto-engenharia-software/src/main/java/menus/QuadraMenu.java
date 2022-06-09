@@ -156,7 +156,7 @@ public class QuadraMenu {
 
       case 5:
       String string = JOptionPane.showInputDialog(
-        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Cadastrar Manutenção \n 2 - Deletar Manutenção\n 3 - Consultar Manutenção \n 4 - Atualizar Manutenção\n 6 - Sair");
+        "Digite o digito da ação da desejada!  \n-----------------------------------------------------\n 1 - Agendar manutenção \n 2 - Deletar manutenção\n 3 - Consultar manutenção \n 4 - Atualizar manutenção\n 5 - Sair");
         int select = Integer.parseInt(string);
         
         switch (select) {
@@ -215,7 +215,7 @@ public class QuadraMenu {
 
             case 4:{
               JOptionPane.showMessageDialog(null, "===== Atualizar Quadra =====");
-            ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
+               ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
 
               for (Manutencao m : manutencao){
                 JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" + "\nNumero da quadra: " + m.getNumero() +"\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim() );
@@ -244,21 +244,21 @@ public class QuadraMenu {
             } else {
               JOptionPane.showMessageDialog(null, "Erro ao agendar manutenção!!!");
             }
-            }break;
-            case 5: {
-              JOptionPane.showMessageDialog(null, "Saindo!!");
-              break;
-            }
-            default: {
+          }break;
+          
+          case 5: {
+              JOptionPane.showMessageDialog(null, "Saindo!!");  
+          }break;
+
+          default: {
               JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo!!");
-            }break;
-          }
-        
+          }break;
+        }break;
 
       case 6: {
-        JOptionPane.showMessageDialog(null, "Saindo!!");
-        break;
-      }
+        JOptionPane.showMessageDialog(null, "Saindo!!!");
+      }break;
+      
       default: {
         JOptionPane.showMessageDialog(null, "Ops você digitou algo errado. Saindo!!");
       }

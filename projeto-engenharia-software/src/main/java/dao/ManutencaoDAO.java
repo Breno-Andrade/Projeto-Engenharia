@@ -13,10 +13,11 @@ import dominio.Manutencao;
 // SEPARAR A CONEXÂO EM UMA CLASSE DIFERENTE
 public class ManutencaoDAO {
 
-	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (numero, dia_inicio, dia_fim) values (?,?)";
+	private static final String Insert_SQL = "INSERT INTO manutencaoquadra (numero, dia_inicio, dia_fim) values (?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra";
 	private static final String Delete_SQL = "DELETE FROM public.manutencaoquadra WHERE id = ?";
 	private static final String Update_SQL = "UPDATE public.manutencaoquadra SET numero = ?, dia_inicio = ?, dia_fim = ?, WHERE id = ?";
+											
 
 	public static ArrayList<Manutencao> buscarManutencao(){
 		
@@ -94,6 +95,7 @@ public class ManutencaoDAO {
 	    }
 	    return sucesso;
 	}
+	
 	public static boolean atualizarManutencao(Manutencao m){
 		boolean sucesso = false;
 		
@@ -104,6 +106,7 @@ public class ManutencaoDAO {
 		stmt.setInt(1, m.getNumero());
 		stmt.setString(2, m.getDia_inicio());
 		stmt.setString(3, m.getDia_fim());
+		stmt.setInt(4, m.getId());
 		
 		int rowsAffected = stmt.executeUpdate();
 
