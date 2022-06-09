@@ -35,7 +35,7 @@ public class MenuPrincipal {
             case 3:
                 // Gestão de usuários
                 aux = JOptionPane.showInputDialog(null,
-                        "Menu Usuario \n -----------------------------------------------------\n 1 - Cadastrar Usuario\n 2 - Buscar Usuario\n 3 - Sair");
+                        "Menu Usuario \n -----------------------------------------------------\n 1 - Cadastrar Usuario \n2 - Buscar Usuario \n3 - Atualizar Usuario \n4 - Sair");
                 opcao = Integer.parseInt(aux);
                 switch (opcao) {
                     case 1:
@@ -43,6 +43,9 @@ public class MenuPrincipal {
                         break;
                     case 2:
                         UsuarioMenu.buscarUsuario();
+                        break;
+                    case 3:
+                        UsuarioMenu.atualizarUsuario();
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opção Invalida!");
