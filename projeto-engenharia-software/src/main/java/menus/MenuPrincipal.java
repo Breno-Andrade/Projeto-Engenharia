@@ -2,9 +2,6 @@ package menus;
 
 import javax.swing.JOptionPane;
 
-import dao.UsuarioDAO;
-import dominio.Usuario;
-
 public class MenuPrincipal {
     private String aux;
     private int opcao;
@@ -30,6 +27,8 @@ public class MenuPrincipal {
                 ReservaMenu.verificaOpcao();
                 break;
             case 2:
+            QuadraMenu.exibeMenu();
+            QuadraMenu.verificaOpcao();
                 // Gestão de quadras
                 break;
             case 3:
