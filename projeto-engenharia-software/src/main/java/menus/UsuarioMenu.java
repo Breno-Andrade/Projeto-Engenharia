@@ -31,7 +31,7 @@ public class UsuarioMenu {
     
         ArrayList <Usuario> usuario = UsuarioDAO.buscarUsuario();
         for (Usuario u : usuario) {
-            JOptionPane.showMessageDialog(null, "[" + u.getId() + "]" +"Nome: " + u.getNome() + "\nEmail: " + u.getEmail() + "\nSenha: " + u.getSenha() + "\nNivel de permissão: " + u.getNivel_permissao());
+            JOptionPane.showMessageDialog(null, "ID: "  + "[" + u.getId() + "]\n" +"Nome: " + u.getNome() + "\nEmail: " + u.getEmail() + "\nSenha: " + u.getSenha() + "\nNivel de permissão: " + u.getNivel_permissao());
         }
     }
 }
