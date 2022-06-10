@@ -107,7 +107,6 @@ public class ManutencaoDAO {
 		stmt.setString(3, m.getDia_fim());
 		stmt.setInt(4, m.getId());
 		
-		
 		int rowsAffected = stmt.executeUpdate();
 
 			if (rowsAffected > 0) {
