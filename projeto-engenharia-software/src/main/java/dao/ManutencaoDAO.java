@@ -16,7 +16,7 @@ public class ManutencaoDAO {
 	private static final String Insert_SQL = "INSERT INTO manutencaoquadra2 (numero, dia_inicio, dia_fim) values (?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.manutencaoquadra2";
 	private static final String Delete_SQL = "DELETE FROM public.manutencaoquadra2 WHERE id = ?";
-	private static final String Update_SQL = "UPDATE public.manutencaoquadra2 SET numero = ?, dia_inicio = ?, dia_fim = ?, WHERE id = ?";
+	private static final String Update_SQL = "UPDATE public.manutencaoquadra2 SET numero = ?, dia_inicio = ?, dia_fim = ? WHERE id = ?";
 											
 
 	public static ArrayList<Manutencao> buscarManutencao(){
@@ -102,10 +102,11 @@ public class ManutencaoDAO {
 		Connection conexao = Conexao.getConnection(); 
 	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL);
 		
-		stmt.setInt(1, m.getNumero());
-		stmt.setString(2, m.getDia_inicio());
-		stmt.setString(3, m.getDia_fim());
-		stmt.setInt(4, m.getId());
+		stmt.setInt(1, m.getId());
+		stmt.setInt(2, m.getNumero());
+		stmt.setString(3, m.getDia_inicio());
+		stmt.setString(4, m.getDia_fim());
+		
 		
 		int rowsAffected = stmt.executeUpdate();
 

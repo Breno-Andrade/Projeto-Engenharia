@@ -145,11 +145,11 @@ public class QuadraMenu {
         status = (String) JOptionPane.showInputDialog(null, "Informe a situação da quadra? ", "quadra",
             JOptionPane.QUESTION_MESSAGE, null, valores5, valores5[0]);
 
-        q.setNumero(numero);
-        q.setTipo(tipo);
-        q.setCoberta(coberta);
-        q.setArquibancada(arquibancada);
-        q.setBanco(banco_jogador);
+         q.setNumero(numero);
+         q.setTipo(tipo);
+         q.setCoberta(coberta);
+         q.setArquibancada(arquibancada);
+         q.setBanco(banco_jogador);
         q.setStatus(status);
 
         boolean reserva = QuadraDAO.atualizarQuadra(q);
@@ -212,27 +212,6 @@ public class QuadraMenu {
                  }else {
                      JOptionPane.showMessageDialog(null, "Erro ao remover manutenção!!!");
                  }
-
-            // JOptionPane.showMessageDialog(null, "===== Remover Manutenção =====");
-            // ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
-
-            // for (Manutencao m : manutencao) {
-            //   JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" + "\nNumero da quadra: "
-            //       + m.getNumero() + "\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim());
-            // }
-            // String aux = JOptionPane.showInputDialog("Digite o ID da manutenção que deseja remover: ");
-            // int id = Integer.parseInt(aux);
-
-            // Quadra q = new Quadra();
-            // q.setId(id);
-
-            // boolean removido = QuadraDAO.deletarQuadra(q);
-
-            // if (removido) {
-            //   JOptionPane.showMessageDialog(null, "Manutenção removida com sucesso!!!");
-            // } else {
-            //   JOptionPane.showMessageDialog(null, "Erro ao remover manutenção!!!");
-            // }
           }
             break;
 

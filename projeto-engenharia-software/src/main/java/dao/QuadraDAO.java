@@ -15,7 +15,7 @@ public class QuadraDAO {
 	private static final String Insert_SQL = "INSERT INTO cadastroquadra (numero, tipo, coberta, arquibancada, banco_jogador, status) values (?,?,?,?,?,?)";
 	private static final String Select_SQL = "SELECT * FROM public.cadastroquadra";
 	private static final String Delete_SQL = "DELETE FROM public.cadastroquadra WHERE id = ?";
-	private static final String Update_SQL = "UPDATE public.cadastroquadra SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ?, status = ?, WHERE id = ?";
+	private static final String Update_SQL = "UPDATE public.cadastroquadra SET numero = ?, tipo = ?, coberta = ?, arquibancada = ?, banco_jogador = ?, status = ? WHERE id = ?";
 
 	public static ArrayList<Quadra> buscarQuadra(){
 		
@@ -116,7 +116,7 @@ public class QuadraDAO {
 		stmt.setString(4, q.getCoberta());
 		stmt.setString(5, q.getArquibancada());
 		stmt.setString(6, q.getBanco());
-		stmt.setString(6, q.getStatus());
+		stmt.setString(7, q.getStatus());
 		
 		
 		int rowsAffected = stmt.executeUpdate();
