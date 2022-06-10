@@ -102,15 +102,11 @@ public class QuadraMenu {
         ArrayList<Quadra> quadras = QuadraDAO.buscarQuadra();
 
         for (Quadra q : quadras){
-        
-        JOptionPane.showMessageDialog(null, "ID da quadra: [" + q.getId() + "]" +"\nNumero da quadra: " + q.getNumero() + "\nStatus da quadra: " + q.getStatus() );
+          JOptionPane.showMessageDialog(null, "ID da quadra: [" + q.getId() + "]" +"\nNumero da quadra: " + q.getNumero() + "\nStatus da quadra: " + q.getStatus() );
         }
         
         String string = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
         int id = Integer.parseInt(string);
-        
-        Quadra q = new Quadra();
-        q.setId(id);
         
         JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
         String aux = JOptionPane.showInputDialog("Digite o Número da quadra: ");
@@ -135,13 +131,15 @@ public class QuadraMenu {
         String[] valores5 = { "Desbloqueada", "Bloqueada", };
         status = (String) JOptionPane.showInputDialog(null, "Informe a situação da quadra? ", "quadra",
             JOptionPane.QUESTION_MESSAGE, null, valores5, valores5[0]);
-        
-         q.setNumero(numero);
-         q.setTipo(tipo);
-         q.setCoberta(coberta);
-         q.setArquibancada(arquibancada);
-         q.setBanco(banco_jogador);
-         q.setStatus(status);
+       
+       Quadra q = new Quadra(); 
+        q.setId(id);
+        q.setNumero(numero);
+        q.setTipo(tipo);
+        q.setCoberta(coberta);
+        q.setArquibancada(arquibancada);
+        q.setBanco(banco_jogador);
+        q.setStatus(status);
 
          boolean reserva = QuadraDAO.atualizarQuadra(q);
 
