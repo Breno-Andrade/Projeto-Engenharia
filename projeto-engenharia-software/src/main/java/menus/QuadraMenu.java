@@ -122,8 +122,9 @@ public class QuadraMenu {
         q.setId(id);
 
         JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
-        String aux = JOptionPane.showInputDialog("Digite o Número da quadra: ");
-        int numero = Integer.parseInt(aux);
+
+        String aux3 = JOptionPane.showInputDialog("Digite o Número da quadra: ");
+        int numero = Integer.parseInt(aux3);
 
         String[] valores = { "Saibro", "Tenis rápido", "Beath tenis" };
         tipo = (String) JOptionPane.showInputDialog(null, "Escolha o novo tipo de quadra", "quadra",
@@ -155,7 +156,7 @@ public class QuadraMenu {
         boolean reserva = QuadraDAO.atualizarQuadra(q);
 
         if (reserva) {
-          JOptionPane.showMessageDialog(null, "Quadra cadastrada com sucesso!!!");
+          JOptionPane.showMessageDialog(null, "Quadra alterada com sucesso!!!");
         } else {
           JOptionPane.showMessageDialog(null, "Erro ao atualizar quadra!!!");
         }
@@ -225,20 +226,21 @@ public class QuadraMenu {
             break;
 
           case 4: {
-            JOptionPane.showMessageDialog(null, "===== Atualizar Quadra =====");
+            JOptionPane.showMessageDialog(null, "===== Agendar manutenção =====");
             ArrayList<Manutencao> manutencao = ManutencaoDAO.buscarManutencao();
 
             for (Manutencao m : manutencao) {
               JOptionPane.showMessageDialog(null, "ID manutenção: [" + m.getId() + "]" + "\nNumero da quadra: "
                   + m.getNumero() + "\nDia início: " + m.getDia_inicio() + "\nDia fim: " + m.getDia_fim());
             }
-            String string5 = JOptionPane.showInputDialog("Digite o ID da quadra que deseja atualizar");
-            int id = Integer.parseInt(string5);
+
+            String string3 = JOptionPane.showInputDialog("Digite o ID da manutenção que deseja alterar");
+            int id = Integer.parseInt(string3);
 
             Manutencao m = new Manutencao();
             m.setId(id);
 
-            JOptionPane.showMessageDialog(null, "===== Informe as novas característica da quadra  =====");
+            JOptionPane.showMessageDialog(null, "===== Informe as novas característica da manutenção  =====");
 
             String aux3 = JOptionPane.showInputDialog("Informe o numero da quadra: ");
             int numero = Integer.parseInt(aux3);

@@ -13,6 +13,8 @@ public class Quadra {
 
     private int numero;
 
+
+
     public int getNumero() {
         return numero;
     }

@@ -102,10 +102,10 @@ public class ManutencaoDAO {
 		Connection conexao = Conexao.getConnection(); 
 	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL);
 		
-		stmt.setInt(1, m.getId());
-		stmt.setInt(2, m.getNumero());
-		stmt.setString(3, m.getDia_inicio());
-		stmt.setString(4, m.getDia_fim());
+		stmt.setInt(1, m.getNumero());
+		stmt.setString(2, m.getDia_inicio());
+		stmt.setString(3, m.getDia_fim());
+		stmt.setInt(4, m.getId());
 		
 		
 		int rowsAffected = stmt.executeUpdate();
