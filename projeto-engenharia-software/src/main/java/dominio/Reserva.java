@@ -6,6 +6,7 @@ public class Reserva {
 	private String cpf;
 	private String tipo_quadra;
 	private String dia_mes;
+	private String periodo;
 	private String hora_inicio;
 	private String hora_termino;
 	
@@ -17,6 +18,14 @@ public class Reserva {
 		this.id = id;
 	}
 	
+	public String getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
+	}
+
 	public String getNome() {
 		return nome;
 	}

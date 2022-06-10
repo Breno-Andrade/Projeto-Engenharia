@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import dao.ReservaDAO;
 import dominio.Reserva;
+import dominio.Pagamento;
 
 public class ReservaMenu {
 
@@ -13,6 +14,8 @@ public class ReservaMenu {
     static String cpf;
     static String tipo_quadra;
     static String dia_mes;
+    static int periodo;
+    static boolean quadraCoberta;
     static String horainicio;
     static String horafim;
     static int op;
@@ -39,9 +42,18 @@ public class ReservaMenu {
                 String[] valores  = {"Saibro", "Tenis rápido","Beath tenis"};
                 tipo_quadra       = (String)JOptionPane.showInputDialog(null, "Escolha um tipo de quadra", "quadra", 
                 JOptionPane.QUESTION_MESSAGE, null, valores, valores[0]);
+                int auxiliar = JOptionPane.showConfirmDialog( null, "Deseja quadra coberta? ");
+                if (auxiliar == 0) quadraCoberta = true;
+                else quadraCoberta = false;
                 dia_mes           = JOptionPane.showInputDialog("Digite o dia e mes (ex: 00/00): ");
+                aux = JOptionPane.showInputDialog("Digite o periodo desejado em numeros(Quantidade de horas ex: 2)");
+                periodo = Integer.parseInt(aux);
                 horainicio        = JOptionPane.showInputDialog("Digite a hora de inicio desejada:\n (funcionamento = 06:00 at  22:00) ");
                 horafim           = JOptionPane.showInputDialog("Digite a hora de termino desejada: ");
+
+                Pagamento p = new Pagamento();
+
+                JOptionPane.showInputDialog(null, "Valor a pagar: ", p.calculadorCusto(periodo, quadraCoberta));
                 
                   Reserva q = new Reserva();
                   q.setNome(nome);
