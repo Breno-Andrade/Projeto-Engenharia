@@ -52,5 +52,14 @@ public class Quadra {
     public void setBanco(String banco) {
         this.banco = banco;
     }
+
+    private String status;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
 }
