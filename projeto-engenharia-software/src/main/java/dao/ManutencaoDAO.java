@@ -74,26 +74,26 @@ public class ManutencaoDAO {
 		return sucesso;
         }
 
-	public static boolean deletarManutencao (Manutencao m) {
+		public static boolean deletarManutencao (Manutencao m) {
+			boolean sucesso = false;
+			
+			try {
+				Connection conexao = Conexao.getConnection(); 
+				PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
+	
+					stmt.setInt(1, m.getId());
+	
+					int rowsAffected = stmt.executeUpdate();
+	
+					if (rowsAffected > 0){
+						sucesso = true; 
+					}        
+			  } catch (SQLException e ){
+				  e.printStackTrace();
+			}
+			return sucesso;
+		}
 
-		boolean sucesso = false;
-
-	    try {
-	        Connection conexao = Conexao.getConnection(); 
-	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
-
-	            stmt.setInt(1, m.getId());
-
-	            int rowsAffected = stmt.executeUpdate();
-
-	            if (rowsAffected > 0){
-	            	sucesso = true; 
-	            }        
-		  } catch (SQLException e ){
-			  e.printStackTrace();
-	    }
-	    return sucesso;
-	}
 	public static boolean atualizarManutencao(Manutencao m){
 		boolean sucesso = false;
 		

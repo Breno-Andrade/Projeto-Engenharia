@@ -83,26 +83,26 @@ public class QuadraDAO {
 		return sucesso;
         }
 
-	public static boolean deletarQuadra (Quadra q) {
+		public static boolean deletarQuadra (Quadra q) {
+			boolean sucesso = false;
+			
+			try {
+				Connection conexao = Conexao.getConnection(); 
+				PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
+	
+					stmt.setInt(1, q.getId());
+	
+					int rowsAffected = stmt.executeUpdate();
+	
+					if (rowsAffected > 0){
+						sucesso = true; 
+					}        
+			  } catch (SQLException e ){
+				  e.printStackTrace();
+			}
+			return sucesso;
+		}
 
-		boolean sucesso = false;
-
-	    try {
-	        Connection conexao = Conexao.getConnection(); 
-	        PreparedStatement stmt = conexao.prepareStatement(Delete_SQL);
-
-	            stmt.setInt(1, q.getId());
-
-	            int rowsAffected = stmt.executeUpdate();
-
-	            if (rowsAffected > 0){
-	            	sucesso = true; 
-	            }        
-		  } catch (SQLException e ){
-			  e.printStackTrace();
-	    }
-	    return sucesso;
-	}
 	public static boolean atualizarQuadra(Quadra q){
 		boolean sucesso = false;
 		
@@ -110,17 +110,18 @@ public class QuadraDAO {
 		Connection conexao = Conexao.getConnection(); 
 	    PreparedStatement stmt = conexao.prepareStatement(Update_SQL);
 		
-		stmt.setInt(1, q.getNumero());
-		stmt.setString(2, q.getTipo());
-		stmt.setString(3, q.getCoberta());
-		stmt.setString(4, q.getArquibancada());
-		stmt.setString(5, q.getBanco());
+		stmt.setInt(1, q.getId());
+		stmt.setInt(2, q.getNumero());
+		stmt.setString(3, q.getTipo());
+		stmt.setString(4, q.getCoberta());
+		stmt.setString(5, q.getArquibancada());
+		stmt.setString(6, q.getBanco());
 		stmt.setString(6, q.getStatus());
-		stmt.setInt(7, q.getId());
+		
 		
 		int rowsAffected = stmt.executeUpdate();
 
-			if (rowsAffected > 0) {
+		if (rowsAffected > 0) {
 			sucesso = true; 
 			}     
 	} catch (SQLException e){

@@ -62,7 +62,7 @@ public class ReservaMenu {
             
             case 2: 
             {
-                JOptionPane.showMessageDialog(null, "===== Deletar Quadra =====");
+                JOptionPane.showMessageDialog(null, "===== Deletar reserva =====");
                 ArrayList<Reserva> quadras = ReservaDAO.buscarReservas();
                 
                 for (Reserva q : quadras) {

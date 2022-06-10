@@ -2,23 +2,28 @@ package dominio;
 
 public class Quadra {
     private int id;
-	public int getId() {
+
+    public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+
     private int numero;
-	public int getNumero() {
+
+    public int getNumero() {
         return numero;
     }
+
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
     private String tipo;
-	public String getTipo() {
+
+    public String getTipo() {
         return tipo;
     }
 
@@ -27,7 +32,8 @@ public class Quadra {
     }
 
     private String coberta;
-	public String getCoberta() {
+
+    public String getCoberta() {
         return coberta;
     }
 
@@ -36,22 +42,25 @@ public class Quadra {
     }
 
     private String arquibancada;
-	public String getArquibancada() {
+
+    public String getArquibancada() {
         return arquibancada;
     }
-    
+
     public void setArquibancada(String arquibancada) {
         this.arquibancada = arquibancada;
     }
-   
+
     private String banco;
+
     public String getBanco() {
         return banco;
     }
-    
+
     public void setBanco(String banco) {
         this.banco = banco;
     }
+
     public String getStatus() {
         return status;
     }
@@ -59,6 +68,7 @@ public class Quadra {
     public void setStatus(String status) {
         this.status = status;
     }
+
     private String status;
 
 }
